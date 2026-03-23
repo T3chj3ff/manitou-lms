@@ -1,0 +1,1168 @@
+{
+  "106": [
+    {
+      "question": "Why should you use heading styles in emails instead of just bold text?",
+      "options": [
+        "- A) It looks better",
+        "- B) Screen readers can navigate by headings \u2705",
+        "- C) It's faster",
+        "- D) It uses less data"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Screen reader users can jump between headings to navigate long emails quickly. Bold text doesn't provide this structure."
+    },
+    {
+      "question": "Which link text is accessible?",
+      "options": [
+        "- A) \"Click here\"",
+        "- B) \"Learn more\"",
+        "- C) \"Read the 2024 Water Quality Report\" \u2705",
+        "- D) \"This link\""
+      ],
+      "correct_answer": " C",
+      "explanation": "** Descriptive link text makes sense out of context. Screen reader users often navigate by links alone."
+    },
+    {
+      "question": "It's okay to use \"Click here for more information\" as link text.",
+      "options": [
+        "- A) True",
+        "- B) False \u2705"
+      ],
+      "correct_answer": " B",
+      "explanation": "** \"Click here\" is meaningless out of context. Use descriptive text like \"View the meeting agenda.\""
+    },
+    {
+      "question": "Where is the Accessibility Checker in Outlook?",
+      "options": [
+        "- A) File tab",
+        "- B) Review tab \u2705",
+        "- C) Insert tab",
+        "- D) Home tab"
+      ],
+      "correct_answer": " B",
+      "explanation": "** The Accessibility Checker is in the Review tab in Outlook (and other Office apps)."
+    },
+    {
+      "question": "What does the Accessibility Checker catch?",
+      "options": [
+        "- A) Missing alt text \u2705",
+        "- B) Spelling errors",
+        "- C) Grammar mistakes",
+        "- D) Formatting issues"
+      ],
+      "correct_answer": " A",
+      "explanation": "** The Accessibility Checker identifies accessibility issues like missing alt text, low contrast, and unclear link text."
+    },
+    {
+      "question": "Using bullet points instead of typing dashes makes emails more accessible.",
+      "options": [
+        "- A) True \u2705",
+        "- B) False"
+      ],
+      "correct_answer": " A",
+      "explanation": "** Screen readers announce \"List with X items\" when you use the bullet button, helping users understand structure."
+    },
+    {
+      "question": "How do you apply a heading style in Outlook?",
+      "options": [
+        "- A) Make text bold and bigger",
+        "- B) Format Text tab \u2192 Styles \u2192 Heading 1 \u2705",
+        "- C) Type \"Heading:\" before the text",
+        "- D) Use all caps"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Use the Format Text tab and select a heading style from the Styles dropdown."
+    },
+    {
+      "question": "What's the problem with light gray text on a white background?",
+      "options": [
+        "- A) It's too fancy",
+        "- B) It uses too much ink when printed",
+        "- C) Low contrast makes it hard to read \u2705",
+        "- D) Nothing, it looks sleek"
+      ],
+      "correct_answer": " C",
+      "explanation": "** Low contrast text is difficult or impossible for people with low vision to read."
+    },
+    {
+      "question": "You should check accessibility before sending any city-wide email.",
+      "options": [
+        "- A) True \u2705",
+        "- B) False"
+      ],
+      "correct_answer": " A",
+      "explanation": "** All city communications should be accessible. Check before sending to ensure everyone can read your message."
+    },
+    {
+      "question": "Important Info Click here to see the schedule. [Image with no alt text] ```",
+      "options": [
+        "- A) Missing headings",
+        "- B) \"Click here\" link",
+        "- C) No alt text on image",
+        "- D) All of the above \u2705"
+      ],
+      "correct_answer": " D",
+      "explanation": "** This email has multiple accessibility issues: no proper headings, vague link text, and missing alt text."
+    }
+  ],
+  "107": [
+    {
+      "question": "What's the #1 accessibility complaint for government websites?",
+      "options": [
+        "- A) Slow loading times",
+        "- B) Inaccessible PDFs \u2705",
+        "- C) Too many pop-ups",
+        "- D) Broken links"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Inaccessible PDFs are the most common accessibility complaint for government sites."
+    },
+    {
+      "question": "A PDF created by \"printing to PDF\" is accessible.",
+      "options": [
+        "- A) True",
+        "- B) False \u2705"
+      ],
+      "correct_answer": " B",
+      "explanation": "** \"Print to PDF\" creates an image of the page, not accessible tagged text."
+    },
+    {
+      "question": "How do you create an accessible PDF from Word?",
+      "options": [
+        "- A) Print to PDF",
+        "- B) File \u2192 Save As \u2192 PDF, check \"Document structure tags for accessibility\" \u2705",
+        "- C) Export as image then convert to PDF",
+        "- D) Scan the printed document"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Use Save As PDF and enable the \"Document structure tags\" option to preserve accessibility."
+    },
+    {
+      "question": "What should you do BEFORE exporting to PDF?",
+      "options": [
+        "- A) Add alt text to images in the source document \u2705",
+        "- B) Change all fonts to Arial",
+        "- C) Remove all images",
+        "- D) Print a test copy"
+      ],
+      "correct_answer": " A",
+      "explanation": "** Alt text, headings, and structure must be added in the source document (Word, PowerPoint) before exporting."
+    },
+    {
+      "question": "If you can select and copy text from a PDF, it's probably accessible.",
+      "options": [
+        "- A) True (good sign, but not guaranteed) \u2705",
+        "- B) False"
+      ],
+      "correct_answer": " A",
+      "explanation": "** If you can select text, it's text-based (not an image). But it still needs tags, headings, and alt text to be fully accessible."
+    },
+    {
+      "question": "What's OCR?",
+      "options": [
+        "- A) Office of Civil Rights",
+        "- B) Optical Character Recognition (converts images to text) \u2705",
+        "- C) Online Content Repository",
+        "- D) Organized Content Review"
+      ],
+      "correct_answer": " B",
+      "explanation": "** OCR (Optical Character Recognition) converts scanned images into selectable, searchable text."
+    },
+    {
+      "question": "When should you use a PDF instead of a web page?",
+      "options": [
+        "- A) Always, PDFs are better",
+        "- B) Never, web pages are always better",
+        "- C) For official forms requiring signatures or documents needing exact layout \u2705",
+        "- D) When you want to hide information"
+      ],
+      "correct_answer": " C",
+      "explanation": "** Use PDFs only when necessary (forms, legal docs). Web pages are more accessible for most content."
+    },
+    {
+      "question": "You need Adobe Acrobat Pro to check PDF accessibility.",
+      "options": [
+        "- A) True",
+        "- B) False (free tools like PAC are available) \u2705"
+      ],
+      "correct_answer": " B",
+      "explanation": "** While Acrobat Pro is helpful, free tools like PAC 2024 can check PDF accessibility."
+    },
+    {
+      "question": "What makes a scanned PDF inaccessible?",
+      "options": [
+        "- A) It's an image, not text \u2705",
+        "- B) It's too large",
+        "- C) It's in color",
+        "- D) It has too many pages"
+      ],
+      "correct_answer": " A",
+      "explanation": "** Scanned PDFs are images. Screen readers can't read images unless OCR is applied."
+    },
+    {
+      "question": "What's the first step to creating an accessible PDF?",
+      "options": [
+        "- A) Use proper headings and structure in the source document \u2705",
+        "- B) Change the file name",
+        "- C) Reduce the file size",
+        "- D) Add a password"
+      ],
+      "correct_answer": " A",
+      "explanation": "** Accessibility starts in the source document (Word, PowerPoint). Use headings, alt text, and proper structure before exporting."
+    }
+  ],
+  "115": [
+    {
+      "question": "Which law requires government services to be accessible?",
+      "options": [
+        "- A) HIPAA",
+        "- B) ADA Title II \u2705",
+        "- C) FERPA",
+        "- D) GDPR"
+      ],
+      "correct_answer": " B",
+      "explanation": "** ADA Title II requires all state and local government programs, services, and activities to be accessible."
+    },
+    {
+      "question": "Small cities are exempt from ADA requirements.",
+      "options": [
+        "- A) True",
+        "- B) False \u2705"
+      ],
+      "correct_answer": " B",
+      "explanation": "** All government entities must comply with the ADA, regardless of size."
+    },
+    {
+      "question": "What's a reasonable accommodation?",
+      "options": [
+        "- A) A nice gesture",
+        "- B) A modification that enables access \u2705",
+        "- C) An expensive upgrade",
+        "- D) Optional assistance"
+      ],
+      "correct_answer": " B",
+      "explanation": "** A reasonable accommodation is a modification or adjustment that enables a person with a disability to access services."
+    },
+    {
+      "question": "When can you deny an accommodation request?",
+      "options": [
+        "- A) When it's inconvenient",
+        "- B) When it costs money",
+        "- C) Only if it's an undue burden or fundamental alteration \u2705",
+        "- D) Whenever you want"
+      ],
+      "correct_answer": " C",
+      "explanation": "** You can only deny if it would cause undue burden (significant difficulty/expense) or fundamentally alter the service."
+    },
+    {
+      "question": "Government websites must comply with WCAG 2.0 Level AA at minimum.",
+      "options": [
+        "- A) True \u2705",
+        "- B) False"
+      ],
+      "correct_answer": " A",
+      "explanation": "** Courts have ruled that government websites must meet WCAG 2.0 Level AA (WCAG 2.1 is current best practice)."
+    },
+    {
+      "question": "What's the consequence of non-compliance?",
+      "options": [
+        "- A) Nothing",
+        "- B) A warning",
+        "- C) Lawsuits, OCR complaints, loss of federal funding \u2705",
+        "- D) A small fine"
+      ],
+      "correct_answer": " C",
+      "explanation": "** Non-compliance can result in lawsuits, OCR investigations, corrective action requirements, and loss of federal funding."
+    },
+    {
+      "question": "You can ask for medical documentation to prove someone has a disability.",
+      "options": [
+        "- A) True",
+        "- B) False (except for specific programs) \u2705"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Generally, you cannot ask for proof of disability. Exceptions exist for specific disability programs."
+    },
+    {
+      "question": "What does WCAG stand for?",
+      "options": [
+        "- A) Web Content Accessibility Guidelines \u2705",
+        "- B) Website Compliance and Governance",
+        "- C) Web Communication Access Guide",
+        "- D) World Council on Accessibility"
+      ],
+      "correct_answer": " A",
+      "explanation": "** WCAG (Web Content Accessibility Guidelines) is the international standard for web accessibility."
+    },
+    {
+      "question": "Accessibility is just about avoiding lawsuits.",
+      "options": [
+        "- A) True",
+        "- B) False \u2705"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Accessibility is about civil rights and equal access. Compliance is the minimum; inclusion is the goal."
+    },
+    {
+      "question": "Who is your city's ADA Coordinator?",
+      "options": [
+        "- A) The mayor",
+        "- B) [Insert actual name/title] \u2705",
+        "- C) Every employee",
+        "- D) We don't have one"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Every city must designate an ADA Coordinator. Know who yours is and how to contact them."
+    }
+  ],
+  "114": [
+    {
+      "question": "When helping a customer with a disability, you should:",
+      "options": [
+        "- A) Talk to their companion",
+        "- B) Talk directly to the person \u2705",
+        "- C) Speak louder",
+        "- D) Avoid eye contact"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Always address the person directly, not their companion or interpreter."
+    },
+    {
+      "question": "You should ask before helping someone with a disability.",
+      "options": [
+        "- A) True \u2705",
+        "- B) False"
+      ],
+      "correct_answer": " A",
+      "explanation": "** Always ask \"Would you like assistance?\" and wait for their response. Don't assume they need help."
+    },
+    {
+      "question": "What can you ask about a service animal?",
+      "options": [
+        "- A) \"What's your disability?\"",
+        "- B) \"Is this a service animal?\" and \"What task is it trained to perform?\" \u2705",
+        "- C) \"Can I see certification?\"",
+        "- D) Nothing, you can't ask anything"
+      ],
+      "correct_answer": " B",
+      "explanation": "** You can ask these two questions only. You cannot ask about the disability or request documentation."
+    },
+    {
+      "question": "Service animals must be allowed everywhere the public is allowed.",
+      "options": [
+        "- A) True \u2705",
+        "- B) False"
+      ],
+      "correct_answer": " A",
+      "explanation": "** Service animals have access to all public areas. You cannot deny access because of the animal."
+    },
+    {
+      "question": "If you don't understand a customer's speech, you should:",
+      "options": [
+        "- A) Pretend you understand",
+        "- B) Ask them to repeat and offer to write it down \u2705",
+        "- C) Get someone else to help",
+        "- D) Ignore them"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Politely ask them to repeat. Offer written communication if helpful. Be patient."
+    },
+    {
+      "question": "What's person-first language?",
+      "options": [
+        "- A) \"Disabled person\"",
+        "- B) \"Person with a disability\" \u2705",
+        "- C) \"Handicapped person\"",
+        "- D) \"Special needs person\""
+      ],
+      "correct_answer": " B",
+      "explanation": "** Person-first language emphasizes the person, not the disability (though some prefer identity-first)."
+    },
+    {
+      "question": "You can charge extra for accommodations.",
+      "options": [
+        "- A) True",
+        "- B) False \u2705"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Accommodations must be provided at no extra charge. It's part of equal access."
+    },
+    {
+      "question": "When guiding a blind person, you should:",
+      "options": [
+        "- A) Push them from behind",
+        "- B) Grab their arm",
+        "- C) Offer your arm and let them take it \u2705",
+        "- D) Walk ahead and have them follow your voice"
+      ],
+      "correct_answer": " C",
+      "explanation": "** Offer your arm and let them hold your elbow. Describe the environment as you walk."
+    },
+    {
+      "question": "If someone uses a wheelchair, you should:",
+      "options": [
+        "- A) Lean on their wheelchair",
+        "- B) Sit or crouch to be at eye level \u2705",
+        "- C) Pat them on the head",
+        "- D) Stand over them"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Sit or crouch for longer conversations to be at eye level. Don't lean on or move their wheelchair."
+    },
+    {
+      "question": "Not all disabilities are visible.",
+      "options": [
+        "- A) True \u2705",
+        "- B) False"
+      ],
+      "correct_answer": " A",
+      "explanation": "** Many disabilities are invisible (chronic pain, cognitive disabilities, etc.). Don't question whether someone has a disability."
+    }
+  ],
+  "111": [
+    {
+      "question": "What does POUR stand for in web accessibility?",
+      "options": [
+        "- A) Practical, Organized, Useful, Readable",
+        "- B) Perceivable, Operable, Understandable, Robust \u2705",
+        "- C) Public, Open, Universal, Responsive",
+        "- D) Professional, Optimized, User-friendly, Reliable"
+      ],
+      "correct_answer": " B",
+      "explanation": "** POUR is the foundation of WCAG: Perceivable, Operable, Understandable, Robust."
+    },
+    {
+      "question": "What's the proper heading structure for a page?",
+      "options": [
+        "- A) Multiple H1s, then H2s, then H3s",
+        "- B) One H1, then H2s for sections, H3s for subsections \u2705",
+        "- C) Only use H1 for everything",
+        "- D) Skip from H1 to H3"
+      ],
+      "correct_answer": " B",
+      "explanation": "** One H1 per page (the title), H2 for main sections, H3 for subsections. Never skip levels."
+    },
+    {
+      "question": "You can rely on color alone to convey information on a website.",
+      "options": [
+        "- A) True",
+        "- B) False \u2705"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Colorblind users can't distinguish colors. Use color PLUS another indicator (icon, text, pattern)."
+    },
+    {
+      "question": "What's the minimum color contrast ratio for normal text?",
+      "options": [
+        "- A) 2:1",
+        "- B) 3:1",
+        "- C) 4.5:1 \u2705",
+        "- D) 7:1"
+      ],
+      "correct_answer": " C",
+      "explanation": "** WCAG requires 4.5:1 for normal text, 3:1 for large text (18pt+)."
+    },
+    {
+      "question": "Which link text is accessible?",
+      "options": [
+        "- A) \"Click here\"",
+        "- B) \"Read more\"",
+        "- C) \"Download the Parks Master Plan (PDF, 2MB)\" \u2705",
+        "- D) \"Link\""
+      ],
+      "correct_answer": " C",
+      "explanation": "** Descriptive link text tells users where the link goes and what format/size to expect."
+    },
+    {
+      "question": "All functionality on a website must be keyboard accessible.",
+      "options": [
+        "- A) True \u2705",
+        "- B) False"
+      ],
+      "correct_answer": " A",
+      "explanation": "** Users must be able to access all features using only a keyboard (no mouse required)."
+    },
+    {
+      "question": "What should every video on a website have?",
+      "options": [
+        "- A) High resolution",
+        "- B) Captions and transcript \u2705",
+        "- C) Background music",
+        "- D) Auto-play enabled"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Videos need captions for deaf users and transcripts for people who can't watch videos."
+    },
+    {
+      "question": "When should you use tables on a website?",
+      "options": [
+        "- A) For page layout",
+        "- B) For data with rows and columns \u2705",
+        "- C) For side-by-side content",
+        "- D) Never"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Tables should only be used for data. Use CSS/sections for layout."
+    },
+    {
+      "question": "Automated accessibility checkers catch all accessibility issues.",
+      "options": [
+        "- A) True",
+        "- B) False \u2705"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Automated tools catch ~30% of issues. Manual testing with keyboard and screen readers is essential."
+    },
+    {
+      "question": "What's the industry standard for web accessibility?",
+      "options": [
+        "- A) Section 508",
+        "- B) ADA Title II",
+        "- C) WCAG 2.1 Level AA \u2705",
+        "- D) HTML5"
+      ],
+      "correct_answer": " C",
+      "explanation": "** WCAG 2.1 Level AA is the recognized standard for web accessibility."
+    }
+  ],
+  "101": [
+    {
+      "question": "What is alt text?",
+      "options": [
+        "- A) A caption that appears below an image",
+        "- B) Text that describes an image for people who can't see it \u2705",
+        "- C) The file name of an image",
+        "- D) A watermark on an image"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Alt text (alternative text) is a text description of an image that screen readers announce to blind users."
+    },
+    {
+      "question": "Which image needs alt text?",
+      "options": [
+        "- A) A chart showing budget data \u2705",
+        "- B) A decorative swirl border",
+        "- C) A background pattern",
+        "- D) All of the above"
+      ],
+      "correct_answer": " A",
+      "explanation": "** Informational images (charts, photos with meaning) need descriptive alt text. Decorative images should be marked as decorative (null alt text)."
+    },
+    {
+      "question": "What's the best alt text for a photo of a \"Road Closed\" sign on Ruxton Avenue?",
+      "options": [
+        "- A) \"Image\"",
+        "- B) \"Photo\"",
+        "- C) \"Road Closed sign on Ruxton Avenue\" \u2705",
+        "- D) \"IMG_4829.jpg\""
+      ],
+      "correct_answer": " C",
+      "explanation": "** Alt text should describe the information the image conveys. The sign's message and location are the important details."
+    },
+    {
+      "question": "Decorative images don't need alt text.",
+      "options": [
+        "- A) True \u2705",
+        "- B) False"
+      ],
+      "correct_answer": " A",
+      "explanation": "** Decorative images (borders, patterns, generic stock photos) should be marked as decorative with null/empty alt text so screen readers skip them."
+    },
+    {
+      "question": "What should the alt text be for a Facebook icon that links to the city's Facebook page?",
+      "options": [
+        "- A) \"Facebook\"",
+        "- B) \"Icon\"",
+        "- C) \"Visit our Facebook page\" \u2705",
+        "- D) \"Social media\""
+      ],
+      "correct_answer": " C",
+      "explanation": "** When an image is a link, the alt text should describe the destination, not just the image itself."
+    },
+    {
+      "question": "How do you add alt text in Microsoft Word?",
+      "options": [
+        "- A) Right-click image \u2192 Edit Alt Text \u2705",
+        "- B) Insert \u2192 Alt Text",
+        "- C) Format \u2192 Picture \u2192 Alt Text",
+        "- D) You can't add alt text in Word"
+      ],
+      "correct_answer": " A",
+      "explanation": "** Right-click the image and select \"Edit Alt Text\" to add or edit alternative text."
+    },
+    {
+      "question": "What's wrong with this alt text: \"Chart\"?",
+      "options": [
+        "- A) Nothing, it's perfect",
+        "- B) It's too short and doesn't describe what the chart shows \u2705",
+        "- C) It's too long",
+        "- D) Charts don't need alt text"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Alt text for charts should describe what the chart shows (e.g., \"Bar chart showing water usage decreased 15% in 2024\")."
+    },
+    {
+      "question": "The file name (like \"IMG_4829.jpg\") is good enough as alt text.",
+      "options": [
+        "- A) True",
+        "- B) False \u2705"
+      ],
+      "correct_answer": " B",
+      "explanation": "** File names are meaningless to users. Alt text should describe the image content in human-readable language."
+    },
+    {
+      "question": "Which is the best alt text for a bar chart showing a 15% decrease in water usage?",
+      "options": [
+        "- A) \"Chart\"",
+        "- B) \"Water chart\"",
+        "- C) \"Bar chart showing water usage decreased 15% in 2024\" \u2705",
+        "- D) \"Graph\""
+      ],
+      "correct_answer": " C",
+      "explanation": "** Good alt text describes what the visual conveys: the type of chart and the key information it shows."
+    },
+    {
+      "question": "What's the \"30-second rule\" for alt text?",
+      "options": [
+        "- A) Alt text should take 30 seconds to read",
+        "- B) You have 30 seconds to add alt text",
+        "- C) If the image disappeared, what text would you need to keep the meaning intact? \u2705",
+        "- D) Alt text should be exactly 30 characters"
+      ],
+      "correct_answer": " C",
+      "explanation": "** The rule asks: if the image vanished, what text would preserve its meaning? That's your alt text."
+    }
+  ],
+  "108": [
+    {
+      "question": "Where is the Accessibility Checker in Word?",
+      "options": [
+        "- A) Home tab",
+        "- B) Insert tab",
+        "- C) Review tab \u2705",
+        "- D) View tab"
+      ],
+      "correct_answer": " C",
+      "explanation": "** Click Review tab \u2192 Check Accessibility to scan your document for issues."
+    },
+    {
+      "question": "Making text bold and size 18 is the same as using Heading 1 style.",
+      "options": [
+        "- A) True",
+        "- B) False \u2705"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Bold text looks like a heading but isn't recognized by screen readers. Use actual Heading styles."
+    },
+    {
+      "question": "How do you apply Heading 1 in Word?",
+      "options": [
+        "- A) Make text bold and bigger",
+        "- B) Home tab \u2192 Styles \u2192 Heading 1 \u2705",
+        "- C) Type \"Heading 1:\" before the text",
+        "- D) Use all caps"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Select text, go to Home tab, click Styles, and choose Heading 1."
+    },
+    {
+      "question": "What's wrong with using dashes or asterisks for lists?",
+      "options": [
+        "- A) Nothing, it works fine",
+        "- B) Screen readers don't recognize them as lists \u2705",
+        "- C) They're too small",
+        "- D) They use too much space"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Screen readers announce \"List with X items\" only when you use the Bullets or Numbering buttons."
+    },
+    {
+      "question": "You should rely on color alone to convey information (e.g., \"items in red are required\").",
+      "options": [
+        "- A) True",
+        "- B) False \u2705"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Colorblind users can't distinguish colors. Use color PLUS another indicator (asterisk, bold, icon)."
+    },
+    {
+      "question": "How do you add alt text to an image in Word?",
+      "options": [
+        "- A) Right-click \u2192 Edit Alt Text \u2705",
+        "- B) Insert \u2192 Alt Text",
+        "- C) Format \u2192 Picture Properties \u2192 Alt",
+        "- D) You can't add alt text in Word"
+      ],
+      "correct_answer": " A",
+      "explanation": "** Right-click the image and select \"Edit Alt Text\" to add a description."
+    },
+    {
+      "question": "What's the minimum color contrast ratio for normal text?",
+      "options": [
+        "- A) 2:1",
+        "- B) 3:1",
+        "- C) 4.5:1 \u2705",
+        "- D) 7:1"
+      ],
+      "correct_answer": " C",
+      "explanation": "** WCAG requires 4.5:1 contrast for normal text (3:1 for large text 18pt+)."
+    },
+    {
+      "question": "It's okay to use tables for page layout in Word.",
+      "options": [
+        "- A) True",
+        "- B) False \u2705"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Tables should only be used for data. Use columns or sections for layout."
+    },
+    {
+      "question": "What should you do before sharing any Word document?",
+      "options": [
+        "- A) Check spelling",
+        "- B) Run Accessibility Checker \u2705",
+        "- C) Change the font",
+        "- D) Add a cover page"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Always run the Accessibility Checker (Review tab) before sharing to catch issues."
+    },
+    {
+      "question": "Which link text is better?",
+      "options": [
+        "- A) \"Click here for the budget\"",
+        "- B) \"Download the 2024 Budget Summary (PDF)\" \u2705",
+        "- C) \"Budget link\"",
+        "- D) \"Here\""
+      ],
+      "correct_answer": " B",
+      "explanation": "** Descriptive link text tells users exactly where the link goes and what format it's in."
+    }
+  ],
+  "109": [
+    {
+      "question": "Why should you use built-in slide layouts instead of blank slides?",
+      "options": [
+        "- A) They look better",
+        "- B) They have proper reading order for screen readers \u2705",
+        "- C) They're faster to create",
+        "- D) They use less file space"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Built-in layouts have proper structure and reading order that screen readers can navigate."
+    },
+    {
+      "question": "Every slide needs a title, even if you hide it visually.",
+      "options": [
+        "- A) True \u2705",
+        "- B) False"
+      ],
+      "correct_answer": " A",
+      "explanation": "** Screen reader users navigate by slide titles. Every slide needs a unique title for navigation."
+    },
+    {
+      "question": "How do you add alt text to an image in PowerPoint?",
+      "options": [
+        "- A) Insert \u2192 Alt Text",
+        "- B) Right-click image \u2192 Edit Alt Text \u2705",
+        "- C) Format \u2192 Picture \u2192 Alt",
+        "- D) You can't add alt text in PowerPoint"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Right-click the image or chart and select \"Edit Alt Text.\""
+    },
+    {
+      "question": "What's the best alt text for a chart showing a 15% decrease in water usage?",
+      "options": [
+        "- A) \"Chart\"",
+        "- B) \"PowerPoint chart\"",
+        "- C) \"Bar chart showing water usage decreased 15% from 2023 to 2024\" \u2705",
+        "- D) \"Data visualization\""
+      ],
+      "correct_answer": " C",
+      "explanation": "** Alt text for charts should describe the type of chart and the key data it shows."
+    },
+    {
+      "question": "It's okay to use light gray text on a white background if it looks sleek.",
+      "options": [
+        "- A) True",
+        "- B) False \u2705"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Low contrast text is difficult or impossible for people with low vision to read. Use sufficient contrast."
+    },
+    {
+      "question": "Where do you check the reading order of objects on a slide?",
+      "options": [
+        "- A) View tab \u2192 Reading Order",
+        "- B) Home tab \u2192 Arrange \u2192 Selection Pane \u2705",
+        "- C) Insert tab \u2192 Order",
+        "- D) Format tab \u2192 Reading"
+      ],
+      "correct_answer": " B",
+      "explanation": "** The Selection Pane shows the reading order (bottom to top). You can drag to reorder."
+    },
+    {
+      "question": "What font size should you use for body text in presentations?",
+      "options": [
+        "- A) 10pt",
+        "- B) 12pt",
+        "- C) 14pt",
+        "- D) 18pt minimum \u2705"
+      ],
+      "correct_answer": " D",
+      "explanation": "** Use at least 18pt for body text and 24pt+ for headings to ensure readability."
+    },
+    {
+      "question": "You should use lots of animations and transitions to keep the audience engaged.",
+      "options": [
+        "- A) True",
+        "- B) False \u2705"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Excessive animations distract and can cause issues for people with cognitive disabilities. Use sparingly."
+    },
+    {
+      "question": "When presenting, you should:",
+      "options": [
+        "- A) Just say \"as you can see here\" and point at the screen",
+        "- B) Describe visual content aloud \u2705",
+        "- C) Assume everyone can see the slides",
+        "- D) Speak as fast as possible to save time"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Describe charts, images, and visual content aloud so everyone can follow, including people who can't see the screen."
+    },
+    {
+      "question": "Where is the Accessibility Checker in PowerPoint?",
+      "options": [
+        "- A) Home tab",
+        "- B) Insert tab",
+        "- C) Review tab \u2705",
+        "- D) View tab"
+      ],
+      "correct_answer": " C",
+      "explanation": "** Review tab \u2192 Check Accessibility scans your presentation for accessibility issues."
+    }
+  ],
+  "110": [
+    {
+      "question": "Why should you add alt text to social media images?",
+      "options": [
+        "- A) It helps with SEO",
+        "- B) Screen reader users can't see images \u2705",
+        "- C) It makes posts longer",
+        "- D) Social media requires it"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Alt text provides a text description of images for people using screen readers."
+    },
+    {
+      "question": "What's CamelCase and why use it for hashtags?",
+      "options": [
+        "- A) Using all lowercase letters",
+        "- B) Capitalizing each word so screen readers pronounce it correctly \u2705",
+        "- C) Using only capital letters",
+        "- D) Avoiding hashtags entirely"
+      ],
+      "correct_answer": " B",
+      "explanation": "** #ManitouSprings is easier for screen readers to pronounce than #manitousprings."
+    },
+    {
+      "question": "It's okay to use lots of emojis in the middle of sentences.",
+      "options": [
+        "- A) True",
+        "- B) False \u2705"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Screen readers announce emoji descriptions. Multiple emojis in sentences are annoying and confusing."
+    },
+    {
+      "question": "Where should you place emojis in a post?",
+      "options": [
+        "- A) Throughout the text",
+        "- B) At the beginning",
+        "- C) At the end \u2705",
+        "- D) Never use emojis"
+      ],
+      "correct_answer": " C",
+      "explanation": "** Place 1-2 emojis at the end of the post for emphasis without disrupting the text."
+    },
+    {
+      "question": "What should you do with videos on social media?",
+      "options": [
+        "- A) Post without sound",
+        "- B) Add captions/subtitles \u2705",
+        "- C) Make them as short as possible",
+        "- D) Only post images instead"
+      ],
+      "correct_answer": " B",
+      "explanation": "** All videos need captions for people who are deaf or hard of hearing."
+    },
+    {
+      "question": "Auto-generated captions are always accurate and don't need review.",
+      "options": [
+        "- A) True",
+        "- B) False \u2705"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Auto-captions often have errors. Always review and edit them before posting."
+    },
+    {
+      "question": "What's the best way to share information from an infographic?",
+      "options": [
+        "- A) Just post the image",
+        "- B) Post the image with comprehensive alt text AND key info in the caption \u2705",
+        "- C) Don't use infographics",
+        "- D) Make the text in the image bigger"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Include the key information in both alt text and the post caption so everyone can access it."
+    },
+    {
+      "question": "Which is better?",
+      "options": [
+        "- A) \"Check this out! \ud83d\udd25\ud83d\udd25\ud83d\udd25 [link]\"",
+        "- B) \"Read the 2024 Water Quality Report: [link] \ud83d\udca7\" \u2705",
+        "- C) \"Click here\"",
+        "- D) \"Link in bio\""
+      ],
+      "correct_answer": " B",
+      "explanation": "** Descriptive text with minimal emoji at the end is clear and accessible."
+    },
+    {
+      "question": "You should use plain language in social media posts.",
+      "options": [
+        "- A) True \u2705",
+        "- B) False"
+      ],
+      "correct_answer": " A",
+      "explanation": "** Plain language ensures everyone can understand your message, including people with cognitive disabilities."
+    },
+    {
+      "question": "How many hashtags should you use per post?",
+      "options": [
+        "- A) As many as possible",
+        "- B) None",
+        "- C) 3-5 relevant ones \u2705",
+        "- D) Exactly 10"
+      ],
+      "correct_answer": " C",
+      "explanation": "** Limit hashtags to 3-5 relevant ones. Too many hashtags are overwhelming for screen reader users."
+    }
+  ],
+  "112": [
+    {
+      "question": "What does every form field need?",
+      "options": [
+        "- A) A border",
+        "- B) A clear, visible label \u2705",
+        "- C) A default value",
+        "- D) A character limit"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Every field needs a permanent, visible label that stays visible when the field is filled."
+    },
+    {
+      "question": "Placeholder text is a good substitute for a label.",
+      "options": [
+        "- A) True",
+        "- B) False \u2705"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Placeholder text disappears when you start typing. Labels must be permanent and visible."
+    },
+    {
+      "question": "How should you mark required fields?",
+      "options": [
+        "- A) Red border only",
+        "- B) Asterisk only",
+        "- C) \"(required)\" in the label or asterisk with explanation \u2705",
+        "- D) Don't mark them"
+      ],
+      "correct_answer": " C",
+      "explanation": "** Use text like \"(required)\" or an asterisk with a legend explaining what it means."
+    },
+    {
+      "question": "What's a good error message?",
+      "options": [
+        "- A) \"Error\"",
+        "- B) \"Invalid input\"",
+        "- C) \"Please enter a valid email address (example: name@email.com)\" \u2705",
+        "- D) Red text with no explanation"
+      ],
+      "correct_answer": " C",
+      "explanation": "** Error messages should explain what's wrong and how to fix it."
+    },
+    {
+      "question": "Forms should be keyboard accessible (fillable with Tab and Enter keys only).",
+      "options": [
+        "- A) True \u2705",
+        "- B) False"
+      ],
+      "correct_answer": " A",
+      "explanation": "** Users must be able to complete and submit forms using only a keyboard."
+    },
+    {
+      "question": "What's the best way to group related form fields?",
+      "options": [
+        "- A) Put them in a table",
+        "- B) Use different colors",
+        "- C) Use fieldsets with legends \u2705",
+        "- D) Add extra space between them"
+      ],
+      "correct_answer": " C",
+      "explanation": "** Fieldsets group related fields and legends provide context for screen readers."
+    },
+    {
+      "question": "Where should you place field instructions?",
+      "options": [
+        "- A) After the field",
+        "- B) In a tooltip",
+        "- C) Before the field \u2705",
+        "- D) In a separate document"
+      ],
+      "correct_answer": " C",
+      "explanation": "** Instructions should appear before the field so users see them before filling it out."
+    },
+    {
+      "question": "It's okay to clear the entire form if the user makes one error.",
+      "options": [
+        "- A) True",
+        "- B) False \u2705"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Never clear form data on error. Show errors and let users fix them without re-entering everything."
+    },
+    {
+      "question": "What should you do after a form is submitted?",
+      "options": [
+        "- A) Redirect to homepage",
+        "- B) Show clear confirmation message \u2705",
+        "- C) Close the browser",
+        "- D) Nothing"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Provide clear confirmation that the form was submitted successfully and explain next steps."
+    },
+    {
+      "question": "Which input type should you use for email addresses?",
+      "options": [
+        "- A) Text",
+        "- B) Email \u2705",
+        "- C) String",
+        "- D) Address"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Use type=\"email\" for email fields. It validates format and shows the right keyboard on mobile."
+    }
+  ],
+  "102": [],
+  "103": [],
+  "113": [
+    {
+      "question": "Why should you use a microphone even in small rooms?",
+      "options": [
+        "- A) It sounds more professional",
+        "- B) Hearing aid users need the audio signal \u2705",
+        "- C) It's required by law",
+        "- D) To record the meeting"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Hearing aids often connect to microphone systems. Even in small rooms, use a mic for accessibility."
+    },
+    {
+      "question": "You should identify yourself when speaking in meetings.",
+      "options": [
+        "- A) True \u2705",
+        "- B) False"
+      ],
+      "correct_answer": " A",
+      "explanation": "** Say your name before speaking so blind attendees and virtual participants know who's talking."
+    },
+    {
+      "question": "When showing a chart in a presentation, you should:",
+      "options": [
+        "- A) Just say \"as you can see here\"",
+        "- B) Describe what the chart shows aloud \u2705",
+        "- C) Assume everyone can see it",
+        "- D) Skip it and move on"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Describe visual content aloud so everyone can follow, including people who can't see the screen."
+    },
+    {
+      "question": "What should you provide for virtual meetings?",
+      "options": [
+        "- A) Video only",
+        "- B) Audio only",
+        "- C) Live captions \u2705",
+        "- D) Chat disabled"
+      ],
+      "correct_answer": " C",
+      "explanation": "** Virtual meetings should have live captions for people who are deaf or hard of hearing."
+    },
+    {
+      "question": "Service animals can be excluded from public meetings.",
+      "options": [
+        "- A) True",
+        "- B) False \u2705"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Service animals must be allowed in all public meetings and spaces."
+    },
+    {
+      "question": "What should meeting announcements include?",
+      "options": [
+        "- A) Date and time only",
+        "- B) Date, time, location, and how to request accommodations \u2705",
+        "- C) Just the agenda",
+        "- D) A map"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Announcements should include all details plus how to request accommodations (ASL, CART, etc.)."
+    },
+    {
+      "question": "How far in advance should accommodation requests be made?",
+      "options": [
+        "- A) Same day",
+        "- B) 1 day",
+        "- C) 5 business days \u2705",
+        "- D) 30 days"
+      ],
+      "correct_answer": " C",
+      "explanation": "** Typically 5 business days allows time to arrange interpreters or other accommodations."
+    },
+    {
+      "question": "You can deny an accommodation request if it's inconvenient.",
+      "options": [
+        "- A) True",
+        "- B) False \u2705"
+      ],
+      "correct_answer": " B",
+      "explanation": "** You can only deny if it's an undue burden or fundamental alteration (very high bar). Inconvenience isn't enough."
+    },
+    {
+      "question": "What's CART?",
+      "options": [
+        "- A) A type of wheelchair",
+        "- B) Communication Access Realtime Translation (live captioning) \u2705",
+        "- C) Computer Assisted Reading Tool",
+        "- D) City Accessibility Review Team"
+      ],
+      "correct_answer": " B",
+      "explanation": "** CART provides real-time captions by a professional captioner."
+    },
+    {
+      "question": "What should you do with meeting materials?",
+      "options": [
+        "- A) Hand them out at the meeting",
+        "- B) Provide accessible versions in advance \u2705",
+        "- C) Email them after the meeting",
+        "- D) Post them on a locked site"
+      ],
+      "correct_answer": " B",
+      "explanation": "** Provide accessible materials in advance so people can review and prepare."
+    }
+  ]
+}

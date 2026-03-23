@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Manitou Springs Brand Colors (Dark Theme Focus) */
+  --bg-color: #0c111d; /* Deep slate/blue background */
+  --surface-color: rgba(30, 41, 59, 0.7); /* Glassmorphism slate container */
+  --surface-color-solid: #1e293b;
+  --surface-border: rgba(255, 255, 255, 0.1);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  
+  --primary-color: #10b981; /* Emerald/Forest Green */
+  --primary-hover: #059669;
+  
+  --accent-color: #f59e0b; /* Amber/Gold */
+  --accent-hover: #d97706;
+  
+  --danger-color: #ef4444; /* Alert Red */
+  --danger-hover: #dc2626;
+
+  --font-family: 'Inter', sans-serif;
+  --border-radius: 12px;
+  --border-radius-sm: 8px;
+  --transition: all 0.2s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  /* Subtle dark gradient background */
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(16, 185, 129, 0.05), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(14, 165, 233, 0.05), transparent 25%);
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--primary-hover);
+  text-decoration: underline;
+}
+
+/* WCAG ELITE ACCESSIBILITY FOCUS STATES */
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.2);
+  border-radius: 4px;
+}
+
+/* Glassmorphism Utility Class */
+.glass-panel {
+  background: var(--surface-color);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.pulse-primary {
+  animation: pulse 2s infinite;
+}
+
+/* Standard Button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius-sm);
+  font-weight: 500;
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--surface-border);
+}
+.btn-secondary:hover:not(:disabled) {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: var(--text-secondary);
+}
+
+.btn-accent {
+  background-color: var(--accent-color);
+  color: #111;
+}
+.btn-accent:hover:not(:disabled) {
+  background-color: var(--accent-hover);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Formatting for React-Markdown inside module viewer */
+.markdown-body {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+.markdown-body h1, .markdown-body h2, .markdown-body h3 {
+  color: var(--text-primary);
+  margin-top: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--surface-border);
+}
+.markdown-body p { margin-bottom: 1.2rem; }
+.markdown-body ul, .markdown-body ol { margin-bottom: 1.2rem; padding-left: 1.5rem; }
+.markdown-body li { margin-bottom: 0.5rem; }
+.markdown-body strong { color: var(--text-primary); }
+.markdown-body code {
+  background-color: rgba(0,0,0,0.3);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9em;
+  color: var(--accent-color);
+}
+
+@media (max-width: 768px) {
+  .hidden-on-mobile {
+    display: none !important;
+  }
+  /* Show hamburger button on mobile */
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 769px) {
+  /* Keep mobile drawer off-screen and visually hidden on desktop */
+  .mobile-drawer {
+    display: none !important;
+  }
+}
+
+@media print {
+  body { background: white !important; }
+  header, .app-sidebar, .btn, .print-hide { display: none !important; }
+  main { padding: 0 !important; }
+  .certificate-card { 
+    box-shadow: none !important; 
+    border: 4px solid black !important; 
+    padding: 2rem !important;
+  }
+  * { color: black !important; }
+}

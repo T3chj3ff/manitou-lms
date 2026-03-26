@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Large media files (host on CDN/S3, not in git)
+public/videos/*.mp4
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

@@ -61,6 +61,18 @@ export default function ModuleViewer() {
               The whiteboard video for <strong style={{color: 'var(--text-primary)'}}>Module {module.id}</strong> is currently in production. In the meantime, please read the detailed course material below to proceed.
             </p>
           </div>
+        ) : module.youtubeId ? (
+          <div style={{ marginTop: '2rem', marginBottom: '3rem', borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--surface-border)', boxShadow: '0 10px 30px -10px rgba(0,0,0,0.5)', aspectRatio: '16/9' }}>
+            <iframe 
+              width="100%" 
+              height="100%" 
+              src={`https://www.youtube.com/embed/${module.youtubeId}?rel=0`} 
+              title={`${module.title} Video`}
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen
+            ></iframe>
+          </div>
         ) : (
           <div style={{ marginTop: '2rem', marginBottom: '3rem', borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--surface-border)', boxShadow: '0 10px 30px -10px rgba(0,0,0,0.5)' }}>
             <div style={{ background: '#000', padding: '0.5rem 1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--text-secondary)', fontSize: '0.9rem' }}>

@@ -1,83 +1,91 @@
 import { useState, useEffect, useCallback } from 'react';
-
-// Dispatch a custom event so all hook instances sync instantly
-const syncEventName = 'manitou-lms-progress-update';
+import { supabase } from './supabase';
+import { useAuth } from './AuthContext';
 
 export function useProgress() {
-  const getSaved = () => {
-    const saved = localStorage.getItem('manitou-lms-progress');
-    return saved ? JSON.parse(saved) : [];
-  };
-
-  const getStarted = () => {
-    const saved = localStorage.getItem('manitou-lms-started');
-    return saved ? JSON.parse(saved) : [];
-  };
-
-  const getScores = () => {
-    const saved = localStorage.getItem('manitou-lms-scores');
-    return saved ? JSON.parse(saved) : {};
-  };
-
-  const getSavedName = () => {
-    return localStorage.getItem('manitou-lms-username') || '';
-  };
-
-  const [completedQuizzes, setCompletedQuizzes] = useState<string[]>(getSaved);
-  const [startedModules, setStartedModules] = useState<string[]>(getStarted);
-  const [quizScores, setQuizScores] = useState<Record<string, number>>(getScores);
-  const [userName, setUserNameState] = useState<string>(getSavedName);
+  const { user } = useAuth();
+  
+  const [completedQuizzes, setCompletedQuizzes] = useState<string[]>([]);
+  const [startedModules, setStartedModules] = useState<string[]>([]);
+  const [quizScores, setQuizScores] = useState<Record<string, number>>({});
+  const [userName, setUserName] = useState<string>('');
 
   useEffect(() => {
-    const handleSync = () => {
-      setCompletedQuizzes(getSaved());
-      setStartedModules(getStarted());
-      setQuizScores(getScores());
-      setUserNameState(getSavedName());
-    };
-    
-    globalThis.addEventListener(syncEventName, handleSync);
-    globalThis.addEventListener('storage', handleSync);
-    
-    return () => {
-      globalThis.removeEventListener(syncEventName, handleSync);
-      globalThis.removeEventListener('storage', handleSync);
-    };
-  }, []);
-
-  const markCompleted = useCallback((moduleId: string) => {
-    const current = getSaved();
-    if (!current.includes(moduleId)) {
-      const next = [...current, moduleId];
-      localStorage.setItem('manitou-lms-progress', JSON.stringify(next));
-      globalThis.dispatchEvent(new Event(syncEventName));
+    if (user) {
+      setUserName(user.user_metadata?.display_name || user.email?.split('@')[0] || 'Employee');
+      fetchProgress();
+    } else {
+      setCompletedQuizzes([]);
+      setStartedModules([]);
+      setQuizScores({});
+      setUserName('');
     }
-  }, []);
+  }, [user]);
 
-  const markStarted = useCallback((moduleId: string) => {
-    const current = getStarted();
-    if (!current.includes(moduleId)) {
-      const next = [...current, moduleId];
-      localStorage.setItem('manitou-lms-started', JSON.stringify(next));
-      globalThis.dispatchEvent(new Event(syncEventName));
+  const fetchProgress = async () => {
+    if (!user) return;
+    const { data, error } = await supabase
+      .from('progress')
+      .select('module_id, status, score_percent')
+      .eq('user_id', user.id);
+
+    if (error) {
+      console.error('Error fetching progress:', error);
+      return;
     }
-  }, []);
 
-  const saveScore = useCallback((moduleId: string, scorePercent: number) => {
-    const currentScores = getScores();
-    const existingScore = currentScores[moduleId] || 0;
-    if (scorePercent > existingScore) {
-      currentScores[moduleId] = scorePercent;
-      localStorage.setItem('manitou-lms-scores', JSON.stringify(currentScores));
-      globalThis.dispatchEvent(new Event(syncEventName));
+    if (data) {
+      const completed: string[] = [];
+      const started: string[] = [];
+      const scores: Record<string, number> = {};
+
+      data.forEach((row) => {
+        if (row.status === 'completed') completed.push(row.module_id);
+        if (row.status === 'started') started.push(row.module_id);
+        scores[row.module_id] = row.score_percent;
+      });
+
+      setCompletedQuizzes(completed);
+      setStartedModules(started);
+      setQuizScores(scores);
     }
-  }, []);
+  };
 
-  const setUserName = useCallback((name: string) => {
-    localStorage.setItem('manitou-lms-username', name.trim());
-    setUserNameState(name.trim());
-    globalThis.dispatchEvent(new Event(syncEventName));
-  }, []);
+  const markStarted = useCallback(async (moduleId: string) => {
+    if (!user) return;
+    setStartedModules(prev => prev.includes(moduleId) ? prev : [...prev, moduleId]);
+
+    await supabase
+      .from('progress')
+      .upsert({ user_id: user.id, module_id: moduleId, status: 'started' }, { onConflict: 'user_id,module_id', ignoreDuplicates: true });
+  }, [user]);
+
+  const markCompleted = useCallback(async (moduleId: string) => {
+    if (!user) return;
+    setCompletedQuizzes(prev => prev.includes(moduleId) ? prev : [...prev, moduleId]);
+
+    await supabase
+      .from('progress')
+      .upsert({ user_id: user.id, module_id: moduleId, status: 'completed' }, { onConflict: 'user_id,module_id' });
+  }, [user]);
+
+  const saveScore = useCallback(async (moduleId: string, scorePercent: number) => {
+    if (!user) return;
+    setQuizScores(prev => {
+      const existing = prev[moduleId] || 0;
+      if (scorePercent > existing) {
+        // Sync to cloud if strictly better
+        supabase.from('progress').upsert(
+          { user_id: user.id, module_id: moduleId, status: 'completed', score_percent: scorePercent },
+          { onConflict: 'user_id,module_id' }
+        ).then(({ error }) => {
+          if (error) console.error('Error saving score:', error);
+        });
+        return { ...prev, [moduleId]: scorePercent };
+      }
+      return prev;
+    });
+  }, [user]);
 
   const isCompleted = useCallback((moduleId: string) => {
     return completedQuizzes.includes(moduleId);

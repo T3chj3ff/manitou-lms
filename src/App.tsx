@@ -4,19 +4,27 @@ import Dashboard from './pages/Dashboard';
 import ModuleViewer from './pages/ModuleViewer';
 import QuizViewer from './pages/QuizViewer';
 import Certificate from './pages/Certificate';
+import Login from './pages/Login';
+import ProtectedRoute from './components/ProtectedRoute';
+import { AuthProvider } from './lib/AuthContext';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Dashboard />} />
-          <Route path="module/:id" element={<ModuleViewer />} />
-          <Route path="quiz/:id" element={<QuizViewer />} />
-          <Route path="certificate" element={<Certificate />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Dashboard />} />
+              <Route path="module/:id" element={<ModuleViewer />} />
+              <Route path="quiz/:id" element={<QuizViewer />} />
+              <Route path="certificate" element={<Certificate />} />
+            </Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

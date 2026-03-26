@@ -1,0 +1,220 @@
+
+==========
+VIDEO ID: wY4KbkI7LU0
+MODULE: 106
+TITLE: Accessible Email in Outlook
+EDIT URL: https://studio.youtube.com/video/wY4KbkI7LU0/edit
+DESCRIPTION TO PASTE:
+Module 106: Accessible Email in Outlook
+
+**Role:** All Staff | **Time:** 6 Minutes | **Difficulty:** Beginner
+
+The "Big 3" Checklist
+
+1. Give Your Email "Bones" (Headings)
+
+Sighted users scan big bold text. Blind users scan by Headings.
+
+**Do:** Use the "Format Text" ribbon and select **Heading 1** for main topics.
+
+**Don't:** Just use Bold/Underline.
+
+Why It Matters
+
+==========
+VIDEO ID: uTPTVgJW2YA
+MODULE: 107
+TITLE: Creating Accessible PDFs
+EDIT URL: https://studio.youtube.com/video/uTPTVgJW2YA/edit
+DESCRIPTION TO PASTE:
+Module 107: Creating Accessible PDFs
+
+**Role:** Content Creators | **Time:** 8 Minutes | **Difficulty:** Intermediate
+
+Why PDFs Are a Problem
+
+PDFs are the 1 accessibility complaint for government websites. A PDF created by just "printing to PDF" is essentially a picture of text—completely unusable for screen readers.
+
+The Golden Rule
+
+**If you can avoid publishing a PDF, do it.**
+
+Post content as a web page instead. PDFs should only be used for:
+
+- Official forms that need signatures
+
+==========
+VIDEO ID: 7HJWdECB3gY
+MODULE: 108
+TITLE: Accessible Word Documents
+EDIT URL: https://studio.youtube.com/video/7HJWdECB3gY/edit
+DESCRIPTION TO PASTE:
+Module 108: Accessible Word Documents
+
+**Role:** All Staff | **Time:** 7 Minutes | **Difficulty:** Beginner
+
+Why Word Accessibility Matters
+
+Word documents are shared with residents, posted online, and converted to PDFs. If the Word doc isn't accessible, nothing created from it will be either.
+
+The Built-In Accessibility Checker
+
+**Your Secret Weapon:**
+
+1. Click the **Review** tab
+
+2. Click **Check Accessibility**
+
+==========
+VIDEO ID: OTDzwOKMFhk
+MODULE: 109
+TITLE: Accessible PowerPoint Presentations
+EDIT URL: https://studio.youtube.com/video/OTDzwOKMFhk/edit
+DESCRIPTION TO PASTE:
+Module 109: Accessible PowerPoint Presentations
+
+**Role:** All Staff | **Time:** 7 Minutes | **Difficulty:** Beginner
+
+Why PowerPoint Accessibility Matters
+
+Presentations are shared at public meetings, posted online, and sent to residents. An inaccessible PowerPoint excludes people who use screen readers or have visual impairments.
+
+The 6 Essential Rules
+
+1. Use Built-In Slide Layouts
+
+**❌ Wrong:**
+
+- Starting with a blank slide and adding text boxes
+
+==========
+VIDEO ID: sws8N8NKxVc
+MODULE: 110
+TITLE: Accessible Social Media
+EDIT URL: https://studio.youtube.com/video/sws8N8NKxVc/edit
+DESCRIPTION TO PASTE:
+Module 110: Accessible Social Media
+
+**Role:** Communications Staff | **Time:** 6 Minutes | **Difficulty:** Beginner
+
+Why Social Media Accessibility Matters
+
+Social media is how many residents get city updates. If your posts aren't accessible, you're excluding people with disabilities from important community information.
+
+The 4 Essential Rules
+
+1. Add Alt Text to Images
+
+**Every platform has this feature:**
+
+**Facebook/Instagram:**
+
+==========
+VIDEO ID: HqvjSZl1FX0
+MODULE: 111
+TITLE: Web Content Accessibility Basics
+EDIT URL: https://studio.youtube.com/video/HqvjSZl1FX0/edit
+DESCRIPTION TO PASTE:
+Module 111: Web Content Accessibility Basics
+
+**Role:** Web Editors | **Time:** 10 Minutes | **Difficulty:** Intermediate
+
+Why Web Accessibility Matters
+
+Your city website is a public service. If it's not accessible, you're denying services to residents with disabilities—and violating federal law (ADA Title II).
+
+The POUR Principles
+
+All web content must be:
+
+**P**erceivable
+
+Users can perceive the information (it's not invisible to any of their senses)
+
+==========
+VIDEO ID: jSxgVS9k2qI
+MODULE: 112
+TITLE: Accessible Forms and Surveys
+EDIT URL: https://studio.youtube.com/video/jSxgVS9k2qI/edit
+DESCRIPTION TO PASTE:
+Module 112: Accessible Forms and Surveys
+
+**Role:** All Staff | **Time:** 8 Minutes | **Difficulty:** Intermediate
+
+Why Form Accessibility Matters
+
+Forms are how residents interact with city services—permits, registrations, feedback, and more. An inaccessible form means some residents can't access services at all.
+
+The 7 Essential Rules
+
+1. Every Field Needs a Clear Label
+
+**❌ Wrong:**
+
+- Placeholder text only ("Enter your name here...")
+
+==========
+VIDEO ID: v6Kdv0l414w
+MODULE: 113
+TITLE: Accessible Meetings and Events
+EDIT URL: https://studio.youtube.com/video/v6Kdv0l414w/edit
+DESCRIPTION TO PASTE:
+Module 113: Accessible Meetings and Events
+
+**Role:** All Staff | **Time:** 7 Minutes | **Difficulty:** Beginner
+
+Why Meeting Accessibility Matters
+
+Public meetings are required by law to be accessible. But beyond compliance, accessible meetings ensure all residents can participate in their local government.
+
+Before the Meeting: Planning
+
+1. Choose an Accessible Venue
+
+**Check for:**
+
+- ✅ Wheelchair-accessible entrance and parking
+
+==========
+VIDEO ID: e48aG_-T6fM
+MODULE: 114
+TITLE: Accessible Customer Service
+EDIT URL: https://studio.youtube.com/video/e48aG_-T6fM/edit
+DESCRIPTION TO PASTE:
+Module 114: Accessible Customer Service
+
+**Role:** Front-Line Staff | **Time:** 8 Minutes | **Difficulty:** Beginner
+
+Why Accessible Customer Service Matters
+
+You are often the first point of contact for residents. How you interact with people with disabilities sets the tone for their entire experience with the city.
+
+General Principles
+
+1. Talk Directly to the Person
+
+**Do:**
+
+- Make eye contact with the person, not their companion or interpreter
+
+==========
+VIDEO ID: eHYQIufJZF4
+MODULE: 115
+TITLE: Legal Requirements and Compliance
+EDIT URL: https://studio.youtube.com/video/eHYQIufJZF4/edit
+DESCRIPTION TO PASTE:
+Module 115: Legal Requirements and Compliance
+
+**Role:** All Staff | **Time:** 10 Minutes | **Difficulty:** Intermediate
+
+Why Legal Compliance Matters
+
+Accessibility isn't optional—it's the law. Understanding your legal obligations protects both residents' rights and the city from liability.
+
+The Laws That Apply to Us
+
+1. Americans with Disabilities Act (ADA) - Title II
+
+**What it covers:**
+
+- All programs, services, and activities of state and local governments

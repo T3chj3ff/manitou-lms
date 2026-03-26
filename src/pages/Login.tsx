@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { supabase } from '../lib/supabase';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../lib/AuthContext';
 import { BookOpen, UserCircle, KeyRound, Loader, LogIn, UserPlus, Eye, EyeOff } from 'lucide-react';
 
@@ -18,6 +18,9 @@ const DEPARTMENTS = [
 
 export default function Login() {
   const { user } = useAuth();
+  const [searchParams] = useSearchParams();
+  const isTimeout = searchParams.get('timeout') === 'true';
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -103,6 +106,11 @@ export default function Login() {
 
         {/* Form */}
         <form onSubmit={handleAuth} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+          {isTimeout && (
+            <div style={{ padding: '0.75rem 1rem', background: 'rgba(245, 158, 11, 0.1)', borderLeft: '4px solid var(--accent-color)', color: '#fcd34d', fontSize: '0.9rem', borderRadius: '4px' }}>
+              You were securely logged out due to inactivity. Please sign in again.
+            </div>
+          )}
           {errorMsg && (
             <div style={{ padding: '0.75rem 1rem', background: 'rgba(239, 68, 68, 0.1)', borderLeft: '4px solid #ef4444', color: '#fca5a5', fontSize: '0.9rem', borderRadius: '4px' }}>
               {errorMsg}

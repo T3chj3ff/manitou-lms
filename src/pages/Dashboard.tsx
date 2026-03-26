@@ -1,4 +1,6 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Confetti from 'react-confetti';
 import { Book, CheckCircle, Clock, ChevronRight, Video, BookOpen, LogOut, ShieldAlert, Award, Medal } from 'lucide-react';
 import modulesData from '../data/modules.json';
 import { useProgress } from '../lib/useProgress';
@@ -7,6 +9,16 @@ import { useAuth } from '../lib/AuthContext';
 export default function Dashboard() {
   const { isCompleted, isStarted, quizScores, userName, completedQuizzes, progressPercent } = useProgress();
   const { signOut, isAdmin } = useAuth();
+  const [showConfetti, setShowConfetti] = useState(false);
+
+  useEffect(() => {
+    if (progressPercent === 100 && !sessionStorage.getItem('confetti_shown')) {
+      setShowConfetti(true);
+      sessionStorage.setItem('confetti_shown', 'true');
+      const timer = setTimeout(() => setShowConfetti(false), 8000);
+      return () => clearTimeout(timer);
+    }
+  }, [progressPercent]);
 
   // Find the first incomplete module for "Continue Learning"
   const nextModule = modulesData.find((mod) => !isCompleted(mod.id));
@@ -26,6 +38,7 @@ export default function Dashboard() {
 
   return (
     <div className="animate-fade-in">
+      {showConfetti && <Confetti width={typeof window !== 'undefined' ? window.innerWidth : 1200} height={typeof window !== 'undefined' ? window.innerHeight : 800} recycle={false} numberOfPieces={800} gravity={0.15} style={{ position: 'fixed', top: 0, left: 0, zIndex: 9999, pointerEvents: 'none' }} />}
 
       {/* ── Hero / Logo Banner ── */}
       <div style={{

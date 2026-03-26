@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { supabase } from '../lib/supabase';
-import { Users, BookOpen, AlertCircle, Loader, ArrowLeft } from 'lucide-react';
+import { Users, BookOpen, AlertCircle, Loader, ArrowLeft, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface RosterUser {
@@ -18,6 +18,32 @@ export default function Admin() {
   useEffect(() => {
     fetchData();
   }, []);
+
+  const exportToCSV = () => {
+    const headers = ['Employee Name', 'Modules Completed', 'Average Score', 'Status'];
+    const rows = roster.map(user => [
+      user.name,
+      `${user.completedModules} / 13`,
+      user.averageScore > 0 ? `${user.averageScore}%` : 'N/A',
+      user.completedModules === 13 ? 'Certified' : 'In Progress'
+    ]);
+    
+    const csvContent = [
+      headers.join(','),
+      ...rows.map(e => e.map(comp => `"${comp}"`).join(','))
+    ].join('\n');
+    
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    if (link.download !== undefined) {
+      const url = URL.createObjectURL(blob);
+      link.setAttribute('href', url);
+      link.setAttribute('download', 'Manitou_Training_Roster.csv');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  };
 
   const fetchData = async () => {
     setLoading(true);
@@ -78,14 +104,22 @@ export default function Admin() {
         <ArrowLeft size={16} /> Back to Dashboard
       </Link>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '2rem' }}>
-        <div style={{ background: 'var(--primary-color)', padding: '0.75rem', borderRadius: '12px', color: '#111' }}>
-          <Users size={28} />
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '2rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <div style={{ background: 'var(--primary-color)', padding: '0.75rem', borderRadius: '12px', color: '#111' }}>
+            <Users size={28} />
+          </div>
+          <div>
+            <h1 style={{ margin: 0, fontSize: '2rem' }}>Admin Dashboard</h1>
+            <p style={{ margin: 0, color: 'var(--text-secondary)' }}>Employee Progress Roster</p>
+          </div>
         </div>
-        <div>
-          <h1 style={{ margin: 0, fontSize: '2rem' }}>Admin Dashboard</h1>
-          <p style={{ margin: 0, color: 'var(--text-secondary)' }}>Employee Progress Roster</p>
-        </div>
+        
+        {roster.length > 0 && !loading && (
+          <button onClick={exportToCSV} className="btn btn-secondary" style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+            <Download size={18} /> Export CSV
+          </button>
+        )}
       </div>
 
       <div className="glass-panel" style={{ padding: '2rem' }}>

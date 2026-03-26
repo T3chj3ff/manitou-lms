@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { BookOpen, ShieldCheck, CheckCircle, Menu, X, Eye, EyeOff } from 'lucide-react';
+import { BookOpen, ShieldCheck, CheckCircle, Menu, X, Eye, EyeOff, Lock } from 'lucide-react';
 import { useProgress } from '../lib/useProgress';
+import { useIdleTimeout } from '../lib/useIdleTimeout';
 import modulesData from '../data/modules.json';
 
 export default function Layout() {
+  useIdleTimeout(); // Listen for 15-minute inactivity timeout
+
   const { progressPercent, isCompleted, isStarted, userName } = useProgress();
   const location = useLocation();
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -54,30 +57,38 @@ export default function Layout() {
         <BookOpen size={18} /> Dashboard
       </Link>
 
-      {modulesData.map((mod) => {
+      {modulesData.map((mod, index) => {
         const completed = isCompleted(mod.id);
         const started = isStarted(mod.id);
+        
+        // Prequisite check logic: Lock this module if the PREVIOUS module is NOT completed
+        const isLocked = index > 0 && !isCompleted(modulesData[index - 1].id);
+        
         const isActive = location.pathname.includes(`/module/${mod.id}`) || location.pathname.includes(`/quiz/${mod.id}`);
         return (
           <Link
             key={mod.id}
-            to={`/module/${mod.id}`}
+            to={isLocked ? '#' : `/module/${mod.id}`}
+            onClick={(e) => isLocked && e.preventDefault()}
             style={{
               display: 'flex', alignItems: 'center', gap: '0.75rem',
               padding: '0.75rem 1rem', borderRadius: '8px',
               background: isActive ? 'rgba(16, 185, 129, 0.1)' : 'transparent',
-              color: isActive ? 'var(--primary-color)' : 'var(--text-secondary)',
+              color: isActive ? 'var(--primary-color)' : isLocked ? 'rgba(255,255,255,0.2)' : 'var(--text-secondary)',
               textDecoration: 'none', transition: 'all 0.2s', fontSize: '0.9rem',
               borderLeft: isActive ? '3px solid var(--primary-color)' : '3px solid transparent',
+              cursor: isLocked ? 'not-allowed' : 'pointer',
             }}
-            onMouseEnter={(e) => { if (!isActive) e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; }}
+            onMouseEnter={(e) => { if (!isActive && !isLocked) e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; }}
             onMouseLeave={(e) => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
           >
-            {completed
-              ? <CheckCircle size={16} color="var(--primary-color)" />
-              : started
-                ? <div style={{ width: '16px', height: '16px', borderRadius: '50%', border: '2px solid var(--accent-color)', position: 'relative', flexShrink: 0 }}><div style={{ position: 'absolute', top: '3px', left: '3px', width: '6px', height: '6px', background: 'var(--accent-color)', borderRadius: '50%' }} /></div>
-                : <div style={{ width: '16px', height: '16px', borderRadius: '50%', border: '2px solid var(--text-secondary)', flexShrink: 0 }} />}
+            {isLocked
+              ? <Lock size={16} color="rgba(255,255,255,0.2)" />
+              : completed
+                ? <CheckCircle size={16} color="var(--primary-color)" />
+                : started
+                  ? <div style={{ width: '16px', height: '16px', borderRadius: '50%', border: '2px solid var(--accent-color)', position: 'relative', flexShrink: 0 }}><div style={{ position: 'absolute', top: '3px', left: '3px', width: '6px', height: '6px', background: 'var(--accent-color)', borderRadius: '50%' }} /></div>
+                  : <div style={{ width: '16px', height: '16px', borderRadius: '50%', border: '2px solid var(--text-secondary)', flexShrink: 0 }} />}
             <span style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
               {mod.title}
             </span>

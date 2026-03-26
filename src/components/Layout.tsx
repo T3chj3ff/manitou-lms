@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { BookOpen, ShieldCheck, CheckCircle, Menu, X } from 'lucide-react';
+import { BookOpen, ShieldCheck, CheckCircle, Menu, X, Eye, EyeOff } from 'lucide-react';
 import { useProgress } from '../lib/useProgress';
 import modulesData from '../data/modules.json';
 
@@ -8,6 +8,17 @@ export default function Layout() {
   const { progressPercent, isCompleted, isStarted, userName } = useProgress();
   const location = useLocation();
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [highContrast, setHighContrast] = useState(() => localStorage.getItem('manitou-lms-hc') === 'true');
+
+  useEffect(() => {
+    if (highContrast) {
+      document.body.classList.add('high-contrast');
+      localStorage.setItem('manitou-lms-hc', 'true');
+    } else {
+      document.body.classList.remove('high-contrast');
+      localStorage.setItem('manitou-lms-hc', 'false');
+    }
+  }, [highContrast]);
 
   // Close drawer on route change
   useEffect(() => {
@@ -163,9 +174,24 @@ export default function Layout() {
           </Link>
         </div>
 
-        {/* Right: progress ring + certificate */}
+        {/* Right: toggle + progress ring + certificate */}
         {userName && (
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
+            <button 
+              onClick={() => setHighContrast(!highContrast)}
+              style={{
+                background: 'none', border: 'none', color: 'var(--text-secondary)',
+                cursor: 'pointer', display: 'flex', alignItems: 'center', padding: '0.4rem',
+                transition: 'color 0.2s',
+              }}
+              onMouseEnter={e => e.currentTarget.style.color = 'var(--primary-color)'}
+              onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}
+              aria-label="Toggle High Contrast"
+              title="Toggle High Contrast (WCAG AAA)"
+            >
+              {highContrast ? <EyeOff size={22} /> : <Eye size={22} />}
+            </button>
+
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
               <div style={{ position: 'relative', width: '40px', height: '40px' }}>
                 <svg width="40" height="40" style={{ transform: 'rotate(-90deg)' }}>

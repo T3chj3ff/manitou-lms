@@ -4,11 +4,24 @@ import { Navigate } from 'react-router-dom';
 import { useAuth } from '../lib/AuthContext';
 import { BookOpen, UserCircle, KeyRound, Loader, LogIn, UserPlus } from 'lucide-react';
 
+const DEPARTMENTS = [
+  "Administration",
+  "City Clerk",
+  "Finance",
+  "Fire",
+  "Mobility and Parking",
+  "Parks & Recreation",
+  "Planning",
+  "Police",
+  "Public Works"
+];
+
 export default function Login() {
   const { user } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [displayName, setDisplayName] = useState('');
+  const [department, setDepartment] = useState('');
   
   const [isSignUp, setIsSignUp] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -29,6 +42,7 @@ export default function Login() {
     try {
       if (isSignUp) {
         if (!displayName.trim()) throw new Error('Please enter your name for the certificate.');
+        if (!department) throw new Error('Please select your department.');
         
         const { error } = await supabase.auth.signUp({
           email,
@@ -36,6 +50,7 @@ export default function Login() {
           options: {
             data: {
               display_name: displayName,
+              department: department
             }
           }
         });
@@ -87,18 +102,39 @@ export default function Login() {
           )}
 
           {isSignUp && (
-            <div>
-              <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 600 }}>Full Name (For Certificate)</label>
-              <div style={{ position: 'relative' }}>
-                <UserCircle size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'rgba(255,255,255,0.4)' }} />
-                <input
-                  type="text"
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+              <div>
+                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 600 }}>Full Name (For Certificate)</label>
+                <div style={{ position: 'relative' }}>
+                  <UserCircle size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'rgba(255,255,255,0.4)' }} />
+                  <input
+                    type="text"
+                    required
+                    value={displayName}
+                    onChange={(e) => setDisplayName(e.target.value)}
+                    placeholder="Jane Doe"
+                    style={{ width: '100%', padding: '0.75rem 0.75rem 0.75rem 2.5rem', background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: 'white', outline: 'none' }}
+                  />
+                </div>
+              </div>
+              <div>
+                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 600 }}>Department</label>
+                <select
+                  value={department}
+                  onChange={(e) => setDepartment(e.target.value)}
+                  style={{
+                    width: '100%', padding: '0.75rem', background: 'rgba(0,0,0,0.2)', 
+                    border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', 
+                    color: department ? 'white' : 'rgba(255,255,255,0.5)', outline: 'none',
+                    appearance: 'none', cursor: 'pointer'
+                  }}
                   required
-                  value={displayName}
-                  onChange={(e) => setDisplayName(e.target.value)}
-                  placeholder="Jane Doe"
-                  style={{ width: '100%', padding: '0.75rem 0.75rem 0.75rem 2.5rem', background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: 'white', outline: 'none' }}
-                />
+                >
+                  <option value="" disabled style={{ color: 'rgba(0,0,0,0.5)' }}>Select Your Department</option>
+                  {DEPARTMENTS.map((d) => (
+                    <option key={d} value={d} style={{ color: '#0f172a' }}>{d}</option>
+                  ))}
+                </select>
               </div>
             </div>
           )}

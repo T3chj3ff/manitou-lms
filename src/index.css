@@ -205,3 +205,32 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   }
   * { color: black !important; }
 }
+
+/* ── Accessibility High Contrast Overrides (WCAG AAA) ── */
+.high-contrast {
+  --bg-color: #000000 !important;
+  --surface-color: #111111 !important;
+  --surface-color-solid: #111111 !important;
+  --text-primary: #ffffff !important;
+  --text-secondary: #e2e8f0 !important;
+  --primary-color: #059669 !important;
+  --accent-color: #d97706 !important;
+}
+.high-contrast * {
+  text-shadow: none !important;
+  box-shadow: none !important;
+}
+.high-contrast .glass-panel {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: #111111 !important;
+  border: 2px solid white !important;
+}
+.high-contrast a {
+  text-decoration: underline !important; 
+  font-weight: 700 !important;
+  color: #10b981 !important; /* Brighter green for pure black bg */
+}
+.high-contrast .btn-primary {
+  border: 2px solid white !important;
+}

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Book, CheckCircle, Clock, ChevronRight, Video, BookOpen, LogOut, ShieldAlert } from 'lucide-react';
+import { Book, CheckCircle, Clock, ChevronRight, Video, BookOpen, LogOut, ShieldAlert, Award, Medal } from 'lucide-react';
 import modulesData from '../data/modules.json';
 import { useProgress } from '../lib/useProgress';
 import { useAuth } from '../lib/AuthContext';
@@ -147,6 +147,40 @@ export default function Dashboard() {
               transition: 'width 0.6s ease',
             }} />
           </div>
+        </div>
+      </div>
+
+      {/* ── Gamification / Badges ── */}
+      <div style={{ marginBottom: '2.5rem' }}>
+        <h2 style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', fontWeight: 600, marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <Award size={18} /> Recent Badges
+        </h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '1rem' }}>
+          
+          <div className="glass-panel" style={{ padding: '1rem', textAlign: 'center', opacity: completedQuizzes.length >= 3 ? 1 : 0.4, transition: 'opacity 0.3s' }}>
+            <Medal size={32} color={completedQuizzes.length >= 3 ? "#b08d57" : "var(--text-secondary)"} style={{ margin: '0 auto 0.5rem' }} />
+            <div style={{ fontWeight: 600, fontSize: '0.9rem', color: 'var(--text-primary)' }}>Bronze Trail</div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>3 Modules</div>
+          </div>
+
+          <div className="glass-panel" style={{ padding: '1rem', textAlign: 'center', opacity: completedQuizzes.length >= 7 ? 1 : 0.4, transition: 'opacity 0.3s' }}>
+            <Medal size={32} color={completedQuizzes.length >= 7 ? "#c0c0c0" : "var(--text-secondary)"} style={{ margin: '0 auto 0.5rem' }} />
+            <div style={{ fontWeight: 600, fontSize: '0.9rem', color: 'var(--text-primary)' }}>Silver Peak</div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>7 Modules</div>
+          </div>
+
+          <div className="glass-panel" style={{ padding: '1rem', textAlign: 'center', opacity: completedQuizzes.length >= 10 ? 1 : 0.4, transition: 'opacity 0.3s' }}>
+            <Medal size={32} color={completedQuizzes.length >= 10 ? "#ffd700" : "var(--text-secondary)"} style={{ margin: '0 auto 0.5rem' }} />
+            <div style={{ fontWeight: 600, fontSize: '0.9rem', color: 'var(--text-primary)' }}>Gold Ridge</div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>10 Modules</div>
+          </div>
+
+          <div className="glass-panel" style={{ padding: '1rem', textAlign: 'center', opacity: completedQuizzes.length >= 13 ? 1 : 0.4, transition: 'opacity 0.3s' }}>
+            <Award size={32} color={completedQuizzes.length >= 13 ? "#e5e4e2" : "var(--text-secondary)"} style={{ margin: '0 auto 0.5rem' }} />
+            <div style={{ fontWeight: 600, fontSize: '0.9rem', color: 'var(--text-primary)' }}>Accessibility Champ</div>
+            <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)' }}>All 13 Modules</div>
+          </div>
+
         </div>
       </div>
 

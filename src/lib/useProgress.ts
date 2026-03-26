@@ -9,16 +9,19 @@ export function useProgress() {
   const [startedModules, setStartedModules] = useState<string[]>([]);
   const [quizScores, setQuizScores] = useState<Record<string, number>>({});
   const [userName, setUserName] = useState<string>('');
+  const [department, setDepartment] = useState<string>('');
 
   useEffect(() => {
     if (user) {
       setUserName(user.user_metadata?.display_name || user.email?.split('@')[0] || 'Employee');
+      setDepartment(user.user_metadata?.department || 'City Employee');
       fetchProgress();
     } else {
       setCompletedQuizzes([]);
       setStartedModules([]);
       setQuizScores({});
       setUserName('');
+      setDepartment('');
     }
   }, [user]);
 
@@ -101,6 +104,7 @@ export function useProgress() {
     completedQuizzes, startedModules, quizScores, 
     markCompleted, markStarted, saveScore,
     isCompleted, isStarted, progressPercent, 
-    userName, setUserName 
+    userName, setUserName,
+    department, setDepartment
   };
 }

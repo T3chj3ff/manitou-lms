@@ -3,7 +3,7 @@ import { Award, Printer, ArrowLeft, CheckCircle } from 'lucide-react';
 import { useProgress } from '../lib/useProgress';
 
 export default function Certificate() {
-  const { progressPercent, userName } = useProgress();
+  const { progressPercent, userName, department } = useProgress();
 
   if (progressPercent < 100) {
     return <Navigate to="/" />;
@@ -53,19 +53,30 @@ export default function Certificate() {
             <p style={{ fontSize: '1.5rem', color: '#64748b', margin: '3rem 0 1rem' }}>
               PROUDLY PRESENTED TO
             </p>
-            
             <div style={{ 
               color: '#0f172a', 
               fontSize: '3.5rem', 
               fontWeight: 800, 
               fontFamily: 'serif',
-              margin: '0 auto 3rem',
-              paddingBottom: '1rem',
-              borderBottom: '2px solid #e2e8f0',
+              margin: '0 auto 0.5rem',
+              paddingBottom: '0',
               display: 'inline-block',
               minWidth: '50%'
             }}>
               {userName}
+            </div>
+            
+            <div style={{ 
+              color: '#10b981', 
+              fontSize: '1.5rem', 
+              fontWeight: 600, 
+              margin: '0 auto 3rem',
+              paddingBottom: '1rem',
+              borderBottom: '2px solid #e2e8f0',
+              textTransform: 'uppercase',
+              letterSpacing: '2px'
+            }}>
+              {department}
             </div>
             
             <p style={{ fontSize: '1.5rem', color: '#475569', margin: '0 0 2rem' }}>

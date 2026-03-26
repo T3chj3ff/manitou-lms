@@ -151,21 +151,20 @@ export default function Layout() {
 
           <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}>
             <div style={{
-              background: 'rgba(255,255,255,0.1)', padding: '0.25rem', borderRadius: '8px',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
-              width: '40px', height: '40px',
+              width: '48px', height: '48px',
             }}>
               <img
                 src="/manitou-logo.png"
                 alt="Manitou Springs Logo"
-                style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
                   const fallback = e.currentTarget.nextElementSibling as HTMLElement | null;
                   if (fallback) fallback.style.display = 'block';
                 }}
               />
-              <div style={{ display: 'none' }}><BookOpen size={24} color="white" /></div>
+              <div style={{ display: 'none' }}><BookOpen size={28} color="var(--primary-color)" /></div>
             </div>
             <div>
               <h1 style={{ margin: 0, fontSize: '1.2rem', color: 'white' }}>AccessHubCOMS</h1>

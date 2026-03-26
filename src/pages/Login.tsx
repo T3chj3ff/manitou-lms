@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { supabase } from '../lib/supabase';
 import { Navigate } from 'react-router-dom';
 import { useAuth } from '../lib/AuthContext';
-import { BookOpen, UserCircle, KeyRound, Loader, LogIn, UserPlus } from 'lucide-react';
+import { BookOpen, UserCircle, KeyRound, Loader, LogIn, UserPlus, Eye, EyeOff } from 'lucide-react';
 
 const DEPARTMENTS = [
   "Administration",
@@ -20,6 +20,7 @@ export default function Login() {
   const { user } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [displayName, setDisplayName] = useState('');
   const [department, setDepartment] = useState('');
   
@@ -77,8 +78,20 @@ export default function Login() {
         
         {/* Logo Header */}
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <div style={{ display: 'inline-flex', padding: '1rem', background: 'rgba(16,185,129,0.1)', borderRadius: '50%', marginBottom: '1rem' }}>
-            <BookOpen size={40} color="var(--primary-color)" />
+          <div style={{ display: 'inline-flex', marginBottom: '1rem' }}>
+            <img 
+              src="/manitou-logo.png" 
+              alt="City Logo" 
+              style={{ height: '80px', width: 'auto', objectFit: 'contain' }}
+              onError={(e) => {
+                e.currentTarget.style.display = 'none';
+                const fallback = e.currentTarget.nextElementSibling as HTMLElement | null;
+                if (fallback) fallback.style.display = 'inline-block';
+              }} 
+            />
+            <div style={{ display: 'none', padding: '1rem', background: 'rgba(16,185,129,0.1)', borderRadius: '50%' }}>
+              <BookOpen size={40} color="var(--primary-color)" />
+            </div>
           </div>
           <h1 style={{ margin: '0 0 0.5rem', fontSize: '1.8rem', color: 'var(--text-primary)' }}>
             Manitou LMS
@@ -159,13 +172,23 @@ export default function Login() {
             <div style={{ position: 'relative' }}>
               <KeyRound size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'rgba(255,255,255,0.4)' }} />
               <input
-                type="password"
+                type={showPassword ? "text" : "password"}
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                style={{ width: '100%', padding: '0.75rem 0.75rem 0.75rem 2.5rem', background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: 'white', outline: 'none' }}
+                style={{ width: '100%', padding: '0.75rem 2.5rem', background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: 'white', outline: 'none' }}
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                style={{ position: 'absolute', right: '12px', top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', color: 'var(--text-secondary)', cursor: 'pointer', padding: 0, display: 'flex' }}
+                aria-label={showPassword ? "Hide password" : "Show password"}
+                onMouseEnter={e => e.currentTarget.style.color = 'var(--text-primary)'}
+                onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}
+              >
+                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
             </div>
           </div>
 

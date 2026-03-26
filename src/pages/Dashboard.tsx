@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
-import { Book, CheckCircle, Clock, ChevronRight, Video, BookOpen, LogOut } from 'lucide-react';
+import { Book, CheckCircle, Clock, ChevronRight, Video, BookOpen, LogOut, ShieldAlert } from 'lucide-react';
 import modulesData from '../data/modules.json';
 import { useProgress } from '../lib/useProgress';
 import { useAuth } from '../lib/AuthContext';
 
 export default function Dashboard() {
   const { isCompleted, isStarted, quizScores, userName, completedQuizzes, progressPercent } = useProgress();
-  const { signOut } = useAuth();
+  const { signOut, isAdmin } = useAuth();
 
   // Find the first incomplete module for "Continue Learning"
   const nextModule = modulesData.find((mod) => !isCompleted(mod.id));
@@ -85,8 +85,13 @@ export default function Dashboard() {
           />
         </svg>
 
-        {/* Sign Out Button */}
-        <div style={{ position: 'absolute', top: '1rem', right: '1rem', zIndex: 10 }}>
+        {/* Header Actions */}
+        <div style={{ position: 'absolute', top: '1rem', right: '1rem', zIndex: 10, display: 'flex', gap: '0.75rem', alignItems: 'center' }}>
+          {isAdmin && (
+            <Link to="/admin" className="btn btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.85rem', display: 'flex', gap: '0.5rem', alignItems: 'center', background: 'var(--accent-color)', color: '#111' }}>
+              <ShieldAlert size={16} /> Admin Panel
+            </Link>
+          )}
           <button onClick={signOut} style={{ background: 'rgba(255,255,255,0.05)', color: 'var(--text-secondary)', padding: '0.5rem 1rem', fontSize: '0.85rem', display: 'flex', gap: '0.5rem', alignItems: 'center', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', cursor: 'pointer', transition: 'all 0.2s ease' }} onMouseEnter={(e) => {e.currentTarget.style.background = 'rgba(239,68,68,0.1)'; e.currentTarget.style.color = '#f87171'; e.currentTarget.style.borderColor = 'rgba(239,68,68,0.3)';}} onMouseLeave={(e) => {e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = 'var(--text-secondary)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';}}>
             <LogOut size={16} /> Sign Out
           </button>

@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { BookOpen, ShieldCheck, CheckCircle, Menu, X, Eye, EyeOff, Lock, Users } from 'lucide-react';
+import { BookOpen, ShieldCheck, CheckCircle, Menu, X, Sun, Moon, Lock, Users } from 'lucide-react';
 import { useProgress } from '../lib/useProgress';
 import { useIdleTimeout } from '../lib/useIdleTimeout';
 import { useAuth } from '../lib/AuthContext';
+import Footer from './Footer';
 import modulesData from '../data/modules.json';
 
 export default function Layout() {
@@ -13,17 +14,17 @@ export default function Layout() {
   const { isAdmin } = useAuth();
   const location = useLocation();
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [highContrast, setHighContrast] = useState(() => localStorage.getItem('manitou-lms-hc') === 'true');
+  const [theme, setTheme] = useState(() => localStorage.getItem('manitou-lms-theme') || 'dark');
 
   useEffect(() => {
-    if (highContrast) {
-      document.body.classList.add('high-contrast');
-      localStorage.setItem('manitou-lms-hc', 'true');
+    if (theme === 'light') {
+      document.body.classList.add('light-theme');
+      localStorage.setItem('manitou-lms-theme', 'light');
     } else {
-      document.body.classList.remove('high-contrast');
-      localStorage.setItem('manitou-lms-hc', 'false');
+      document.body.classList.remove('light-theme');
+      localStorage.setItem('manitou-lms-theme', 'dark');
     }
-  }, [highContrast]);
+  }, [theme]);
 
   // Close drawer on route change
   useEffect(() => {
@@ -53,7 +54,7 @@ export default function Layout() {
       <Link to="/" style={{
         display: 'flex', alignItems: 'center', gap: '0.75rem',
         padding: '0.75rem 1rem', borderRadius: '8px',
-        background: location.pathname === '/' ? 'rgba(255,255,255,0.05)' : 'transparent',
+        background: location.pathname === '/' ? 'var(--surface-overlay-subtle)' : 'transparent',
         color: 'var(--text-primary)', textDecoration: 'none', marginBottom: '1rem',
       }}>
         <BookOpen size={18} /> Dashboard
@@ -69,7 +70,7 @@ export default function Layout() {
           borderLeft: location.pathname === '/admin' ? '3px solid var(--primary-color)' : '3px solid transparent',
           transition: 'all 0.2s'
         }}
-        onMouseEnter={(e) => { if (location.pathname !== '/admin') e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; }}
+        onMouseEnter={(e) => { if (location.pathname !== '/admin') e.currentTarget.style.background = 'var(--surface-overlay-subtle)'; }}
         onMouseLeave={(e) => { if (location.pathname !== '/admin') e.currentTarget.style.background = 'transparent'; }}
         >
           <Users size={18} /> Admin Roster
@@ -93,16 +94,16 @@ export default function Layout() {
               display: 'flex', alignItems: 'center', gap: '0.75rem',
               padding: '0.75rem 1rem', borderRadius: '8px',
               background: isActive ? 'rgba(16, 185, 129, 0.1)' : 'transparent',
-              color: isActive ? 'var(--primary-color)' : isLocked ? 'rgba(255,255,255,0.2)' : 'var(--text-secondary)',
+              color: isActive ? 'var(--primary-color)' : isLocked ? 'var(--surface-overlay-strong)' : 'var(--text-secondary)',
               textDecoration: 'none', transition: 'all 0.2s', fontSize: '0.9rem',
               borderLeft: isActive ? '3px solid var(--primary-color)' : '3px solid transparent',
               cursor: isLocked ? 'not-allowed' : 'pointer',
             }}
-            onMouseEnter={(e) => { if (!isActive && !isLocked) e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; }}
+            onMouseEnter={(e) => { if (!isActive && !isLocked) e.currentTarget.style.background = 'var(--surface-overlay-subtle)'; }}
             onMouseLeave={(e) => { if (!isActive) e.currentTarget.style.background = 'transparent'; }}
           >
             {isLocked
-              ? <Lock size={16} color="rgba(255,255,255,0.2)" />
+              ? <Lock size={16} color="var(--surface-overlay-heavy)" />
               : completed
                 ? <CheckCircle size={16} color="var(--primary-color)" />
                 : started
@@ -208,7 +209,7 @@ export default function Layout() {
         {userName && (
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
             <button 
-              onClick={() => setHighContrast(!highContrast)}
+              onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
               style={{
                 background: 'none', border: 'none', color: 'var(--text-secondary)',
                 cursor: 'pointer', display: 'flex', alignItems: 'center', padding: '0.4rem',
@@ -216,10 +217,10 @@ export default function Layout() {
               }}
               onMouseEnter={e => e.currentTarget.style.color = 'var(--primary-color)'}
               onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}
-              aria-label="Toggle High Contrast"
-              title="Toggle High Contrast (WCAG AAA)"
+              aria-label="Toggle Light/Dark Theme"
+              title="Toggle Light/Dark Theme"
             >
-              {highContrast ? <EyeOff size={22} /> : <Eye size={22} />}
+              {theme === 'light' ? <Moon size={22} /> : <Sun size={22} />}
             </button>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
@@ -303,10 +304,13 @@ export default function Layout() {
           </aside>
         )}
 
-        <main style={{ flex: 1, padding: '2rem', display: 'flex', justifyContent: 'center', minWidth: 0 }}>
-          <div style={{ maxWidth: '1000px', width: '100%' }}>
-            <Outlet />
+        <main style={{ flex: 1, display: 'flex', flexDirection: 'column', minWidth: 0 }}>
+          <div style={{ padding: '2rem', flex: 1, display: 'flex', justifyContent: 'center' }}>
+            <div style={{ maxWidth: '1000px', width: '100%' }}>
+              <Outlet />
+            </div>
           </div>
+          <Footer />
         </main>
       </div>
     </>

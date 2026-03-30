@@ -153,12 +153,12 @@ export default function Admin() {
                 {roster.map((user) => {
                   const done = user.completedModules === 13;
                   return (
-                    <tr key={user.id} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
+                    <tr key={user.id} style={{ borderBottom: '1px solid var(--surface-overlay-subtle)' }}>
                       <td style={{ padding: '1rem', fontWeight: 600, color: 'var(--text-primary)' }}>{user.name}</td>
                       <td style={{ padding: '1rem' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                           <BookOpen size={16} color={done ? 'var(--primary-color)' : 'var(--text-secondary)'} />
-                          <span style={{ color: done ? 'var(--primary-color)' : 'white' }}>{user.completedModules} / 13</span>
+                          <span style={{ color: done ? 'var(--primary-color)' : 'var(--text-primary)' }}>{user.completedModules} / 13</span>
                         </div>
                       </td>
                       <td style={{ padding: '1rem' }}>

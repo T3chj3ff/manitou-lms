@@ -105,7 +105,7 @@ export default function Dashboard() {
               <ShieldAlert size={16} /> Admin Panel
             </Link>
           )}
-          <button onClick={signOut} style={{ background: 'rgba(255,255,255,0.05)', color: 'var(--text-secondary)', padding: '0.5rem 1rem', fontSize: '0.85rem', display: 'flex', gap: '0.5rem', alignItems: 'center', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', cursor: 'pointer', transition: 'all 0.2s ease' }} onMouseEnter={(e) => {e.currentTarget.style.background = 'rgba(239,68,68,0.1)'; e.currentTarget.style.color = '#f87171'; e.currentTarget.style.borderColor = 'rgba(239,68,68,0.3)';}} onMouseLeave={(e) => {e.currentTarget.style.background = 'rgba(255,255,255,0.05)'; e.currentTarget.style.color = 'var(--text-secondary)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)';}}>
+          <button onClick={signOut} style={{ background: 'var(--surface-overlay-subtle)', color: 'var(--text-secondary)', padding: '0.5rem 1rem', fontSize: '0.85rem', display: 'flex', gap: '0.5rem', alignItems: 'center', border: '1px solid var(--surface-border)', borderRadius: '8px', cursor: 'pointer', transition: 'all 0.2s ease' }} onMouseEnter={(e) => {e.currentTarget.style.background = 'rgba(239,68,68,0.1)'; e.currentTarget.style.color = '#f87171'; e.currentTarget.style.borderColor = 'rgba(239,68,68,0.3)';}} onMouseLeave={(e) => {e.currentTarget.style.background = 'var(--surface-overlay-subtle)'; e.currentTarget.style.color = 'var(--text-secondary)'; e.currentTarget.style.borderColor = 'var(--surface-border)';}}>
             <LogOut size={16} /> Sign Out
           </button>
         </div>
@@ -145,7 +145,7 @@ export default function Dashboard() {
               {completedQuizzes.length}/{modulesData.length} modules
             </span>
           </div>
-          <div style={{ height: '8px', background: 'rgba(255,255,255,0.08)', borderRadius: '99px', overflow: 'hidden' }}>
+          <div style={{ height: '8px', background: 'var(--surface-overlay-medium)', borderRadius: '99px', overflow: 'hidden' }}>
             <div style={{
               height: '100%',
               width: `${progressPercent}%`,
@@ -339,7 +339,7 @@ export default function Dashboard() {
               {/* Icon + Title */}
               <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '0.85rem' }}>
                 <div style={{
-                  background: completed ? 'rgba(16, 185, 129, 0.18)' : started ? 'rgba(245, 158, 11, 0.15)' : 'rgba(255,255,255,0.05)',
+                  background: completed ? 'rgba(16, 185, 129, 0.18)' : started ? 'rgba(245, 158, 11, 0.15)' : 'var(--surface-overlay-subtle)',
                   padding: '0.65rem',
                   borderRadius: '8px',
                   flexShrink: 0,

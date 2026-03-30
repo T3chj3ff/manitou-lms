@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { supabase } from '../lib/supabase';
 import { Navigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../lib/AuthContext';
-import { UserCircle, KeyRound, Loader, LogIn, UserPlus, Eye, EyeOff } from 'lucide-react';
+import { UserCircle, KeyRound, Loader, LogIn, UserPlus, Eye, EyeOff, Sun, Moon } from 'lucide-react';
+import Footer from '../components/Footer';
 
 const DEPARTMENTS = [
   "Administration",
@@ -31,6 +32,18 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
+
+  const [theme, setTheme] = useState(() => localStorage.getItem('manitou-lms-theme') || 'dark');
+
+  useEffect(() => {
+    if (theme === 'light') {
+      document.body.classList.add('light-theme');
+      localStorage.setItem('manitou-lms-theme', 'light');
+    } else {
+      document.body.classList.remove('light-theme');
+      localStorage.setItem('manitou-lms-theme', 'dark');
+    }
+  }, [theme]);
 
   // Already logged in?
   if (user) {
@@ -77,8 +90,24 @@ export default function Login() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'var(--background-color)', padding: '1rem' }}>
-      <div className="glass-panel animate-fade-in" style={{ width: '100%', maxWidth: '420px', padding: '3rem 2.5rem', border: '1px solid rgba(16,185,129,0.3)', boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', background: 'var(--bg-color)' }}>
+      <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '2rem 1rem' }}>
+        <div className="glass-panel animate-fade-in" style={{ position: 'relative', width: '100%', maxWidth: '420px', padding: '3rem 2.5rem', border: '1px solid rgba(16,185,129,0.3)', boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }}>
+          <button 
+            onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+            style={{
+              position: 'absolute', top: '1.25rem', right: '1.25rem',
+              background: 'none', border: 'none', color: 'var(--text-secondary)',
+              cursor: 'pointer', display: 'flex', alignItems: 'center', padding: '0.4rem',
+              transition: 'color 0.2s',
+            }}
+            onMouseEnter={e => e.currentTarget.style.color = 'var(--primary-color)'}
+            onMouseLeave={e => e.currentTarget.style.color = 'var(--text-secondary)'}
+            aria-label="Toggle Light/Dark Theme"
+            title="Toggle Light/Dark Theme"
+          >
+            {theme === 'light' ? <Moon size={22} /> : <Sun size={22} />}
+          </button>
         
         {/* Logo Header */}
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
@@ -129,35 +158,37 @@ export default function Login() {
           {isSignUp && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
               <div>
-                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 600 }}>Full Name (For Certificate)</label>
+                <label htmlFor="displayName" style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 600 }}>Full Name (For Certificate)</label>
                 <div style={{ position: 'relative' }}>
-                  <UserCircle size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'rgba(255,255,255,0.4)' }} />
+                  <UserCircle size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)' }} />
                   <input
+                    id="displayName"
                     type="text"
                     required
                     value={displayName}
                     onChange={(e) => setDisplayName(e.target.value)}
                     placeholder="Jane Doe"
-                    style={{ width: '100%', padding: '0.75rem 0.75rem 0.75rem 2.5rem', background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: 'white', outline: 'none' }}
+                    style={{ width: '100%', padding: '0.75rem 0.75rem 0.75rem 2.5rem', background: 'var(--surface-overlay-subtle)', border: '1px solid var(--surface-border)', borderRadius: '8px', color: 'var(--text-primary)', outline: 'none' }}
                   />
                 </div>
               </div>
               <div>
-                <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 600 }}>Department</label>
+                <label htmlFor="department" style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 600 }}>Department</label>
                 <select
+                  id="department"
                   value={department}
                   onChange={(e) => setDepartment(e.target.value)}
                   style={{
-                    width: '100%', padding: '0.75rem', background: 'rgba(0,0,0,0.2)', 
-                    border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', 
-                    color: department ? 'white' : 'rgba(255,255,255,0.5)', outline: 'none',
+                    width: '100%', padding: '0.75rem', background: 'var(--surface-overlay-subtle)', 
+                    border: '1px solid var(--surface-border)', borderRadius: '8px', 
+                    color: department ? 'var(--text-primary)' : 'var(--text-secondary)', outline: 'none',
                     appearance: 'none', cursor: 'pointer'
                   }}
                   required
                 >
-                  <option value="" disabled style={{ color: 'rgba(0,0,0,0.5)' }}>Select Your Department</option>
+                  <option value="" disabled style={{ color: 'var(--text-secondary)' }}>Select Your Department</option>
                   {DEPARTMENTS.map((d) => (
-                    <option key={d} value={d} style={{ color: '#0f172a' }}>{d}</option>
+                    <option key={d} value={d} style={{ color: 'black' }}>{d}</option>
                   ))}
                 </select>
               </div>
@@ -165,31 +196,33 @@ export default function Login() {
           )}
 
           <div>
-            <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 600 }}>City Email</label>
+            <label htmlFor="email" style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 600 }}>City Email</label>
             <div style={{ position: 'relative' }}>
-              <UserCircle size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'rgba(255,255,255,0.4)' }} />
+              <UserCircle size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)' }} />
               <input
+                id="email"
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="employee@manitouspringsco.gov"
-                style={{ width: '100%', padding: '0.75rem 0.75rem 0.75rem 2.5rem', background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: 'white', outline: 'none' }}
+                style={{ width: '100%', padding: '0.75rem 0.75rem 0.75rem 2.5rem', background: 'var(--surface-overlay-subtle)', border: '1px solid var(--surface-border)', borderRadius: '8px', color: 'var(--text-primary)', outline: 'none' }}
               />
             </div>
           </div>
 
           <div>
-            <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 600 }}>Password</label>
+            <label htmlFor="password" style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.85rem', color: 'var(--text-secondary)', fontWeight: 600 }}>Password</label>
             <div style={{ position: 'relative' }}>
-              <KeyRound size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'rgba(255,255,255,0.4)' }} />
+              <KeyRound size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-secondary)' }} />
               <input
+                id="password"
                 type={showPassword ? "text" : "password"}
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                style={{ width: '100%', padding: '0.75rem 2.5rem', background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', color: 'white', outline: 'none' }}
+                style={{ width: '100%', padding: '0.75rem 2.5rem', background: 'var(--surface-overlay-subtle)', border: '1px solid var(--surface-border)', borderRadius: '8px', color: 'var(--text-primary)', outline: 'none' }}
               />
               <button
                 type="button"
@@ -214,7 +247,7 @@ export default function Login() {
           </button>
         </form>
 
-        <div style={{ marginTop: '2rem', textAlign: 'center', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '1.5rem' }}>
+        <div style={{ marginTop: '2rem', textAlign: 'center', borderTop: '1px solid var(--surface-border)', paddingTop: '1.5rem' }}>
           <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
             {isSignUp ? "Already have an account?" : "New employee?"}{' '}
             <button
@@ -228,6 +261,8 @@ export default function Login() {
         </div>
 
       </div>
+      </div>
+      <Footer />
     </div>
   );
 }

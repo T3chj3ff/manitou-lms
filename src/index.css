@@ -1,11 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Manitou Springs Brand Colors (Dark Theme Focus) */
+  /* Manitou Springs Brand Colors (Dark Theme) */
   --bg-color: #0c111d; /* Deep slate/blue background */
   --surface-color: rgba(30, 41, 59, 0.7); /* Glassmorphism slate container */
   --surface-color-solid: #1e293b;
   --surface-border: rgba(255, 255, 255, 0.1);
+  --surface-overlay-subtle: rgba(255, 255, 255, 0.05); /* Softest highlight */
+  --surface-overlay-medium: rgba(255, 255, 255, 0.1); /* Mid highlight */
+  --surface-overlay-strong: rgba(255, 255, 255, 0.2); /* Strong highlight / disabled */
+  --surface-overlay-heavy: rgba(255, 255, 255, 0.4);  /* Icon contrast */
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   
@@ -206,31 +210,33 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   * { color: black !important; }
 }
 
-/* ── Accessibility High Contrast Overrides (WCAG AAA) ── */
-.high-contrast {
-  --bg-color: #000000 !important;
-  --surface-color: #111111 !important;
-  --surface-color-solid: #111111 !important;
-  --text-primary: #ffffff !important;
-  --text-secondary: #e2e8f0 !important;
-  --primary-color: #059669 !important;
-  --accent-color: #d97706 !important;
+/* ── Light Mode Core ── */
+.light-theme {
+  --bg-color: #f8fafc; /* Tailwind slate-50 */
+  --surface-color: rgba(255, 255, 255, 0.85);
+  --surface-color-solid: #ffffff;
+  --surface-border: rgba(0, 0, 0, 0.12);
+  --surface-overlay-subtle: rgba(0, 0, 0, 0.03); 
+  --surface-overlay-medium: rgba(0, 0, 0, 0.08); 
+  --surface-overlay-strong: rgba(0, 0, 0, 0.15); 
+  --surface-overlay-heavy: rgba(0, 0, 0, 0.35);  
+  
+  --text-primary: #0f172a; /* script-900 */
+  --text-secondary: #475569; /* script-600 */
+  
+  --primary-color: #0d9488; /* Slightly darker teal for contrast on white */
+  --primary-hover: #0f766e;
+  
+  --accent-color: #d97706; /* Darker amber for contrast */
 }
-.high-contrast * {
-  text-shadow: none !important;
-  box-shadow: none !important;
+
+/* Specific light mode overrides */
+.light-theme body {
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(16, 185, 129, 0.1), transparent 25%),
+    radial-gradient(circle at 85% 30%, rgba(14, 165, 233, 0.1), transparent 25%);
 }
-.high-contrast .glass-panel {
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  background: #111111 !important;
-  border: 2px solid white !important;
-}
-.high-contrast a {
-  text-decoration: underline !important; 
-  font-weight: 700 !important;
-  color: #10b981 !important; /* Brighter green for pure black bg */
-}
-.high-contrast .btn-primary {
-  border: 2px solid white !important;
+
+.light-theme .glass-panel {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }

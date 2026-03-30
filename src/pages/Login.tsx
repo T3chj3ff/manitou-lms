@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { supabase } from '../lib/supabase';
 import { Navigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../lib/AuthContext';
-import { BookOpen, UserCircle, KeyRound, Loader, LogIn, UserPlus, Eye, EyeOff } from 'lucide-react';
+import { UserCircle, KeyRound, Loader, LogIn, UserPlus, Eye, EyeOff } from 'lucide-react';
 
 const DEPARTMENTS = [
   "Administration",
@@ -52,6 +52,7 @@ export default function Login() {
           email,
           password,
           options: {
+            emailRedirectTo: `${window.location.origin}/`,
             data: {
               display_name: displayName,
               department: department
@@ -82,18 +83,21 @@ export default function Login() {
         {/* Logo Header */}
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
           <div style={{ display: 'inline-flex', marginBottom: '1rem' }}>
-            <img 
-              src="/manitou-logo.png" 
-              alt="City Logo" 
-              style={{ height: '80px', width: 'auto', objectFit: 'contain' }}
-              onError={(e) => {
-                e.currentTarget.style.display = 'none';
-                const fallback = e.currentTarget.nextElementSibling as HTMLElement | null;
-                if (fallback) fallback.style.display = 'inline-block';
-              }} 
-            />
-            <div style={{ display: 'none', padding: '1rem', background: 'rgba(16,185,129,0.1)', borderRadius: '50%' }}>
-              <BookOpen size={40} color="var(--primary-color)" />
+            <div style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center', 
+              width: '80px', 
+              height: '80px', 
+              background: 'linear-gradient(135deg, var(--primary-color), #2dd4bf)', 
+              borderRadius: '20px',
+              color: 'white',
+              fontSize: '2.5rem',
+              fontWeight: 800,
+              boxShadow: '0 10px 25px rgba(16,185,129,0.3)',
+              letterSpacing: '-1px'
+            }}>
+              MS
             </div>
           </div>
           <h1 style={{ margin: '0 0 0.5rem', fontSize: '1.8rem', color: 'var(--text-primary)' }}>

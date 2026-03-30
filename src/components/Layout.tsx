@@ -180,21 +180,22 @@ export default function Layout() {
           )}
 
           <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}>
-            <div style={{
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              width: '48px', height: '48px',
+            <div style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center', 
+              width: '40px', 
+              height: '40px', 
+              background: 'linear-gradient(135deg, var(--primary-color), #2dd4bf)', 
+              borderRadius: '10px',
+              color: 'white',
+              fontSize: '1.2rem',
+              fontWeight: 800,
+              boxShadow: '0 4px 12px rgba(16,185,129,0.2)',
+              letterSpacing: '-0.5px',
+              flexShrink: 0
             }}>
-              <img
-                src="/manitou-logo.png"
-                alt="Manitou Springs Logo"
-                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                  const fallback = e.currentTarget.nextElementSibling as HTMLElement | null;
-                  if (fallback) fallback.style.display = 'block';
-                }}
-              />
-              <div style={{ display: 'none' }}><BookOpen size={28} color="var(--primary-color)" /></div>
+              MS
             </div>
             <div>
               <h1 style={{ margin: 0, fontSize: '1.2rem', color: 'white' }}>AccessHubCOMS</h1>

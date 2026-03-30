@@ -111,28 +111,22 @@ export default function Dashboard() {
         </div>
 
         {/* Logo */}
-        <div style={{
-          display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
-          width: '90px', height: '90px',
-          background: 'rgba(255,255,255,0.08)',
-          borderRadius: '50%',
-          border: '2px solid rgba(16,185,129,0.3)',
+        <div style={{ 
+          display: 'inline-flex', 
+          alignItems: 'center', 
+          justifyContent: 'center', 
+          width: '90px', 
+          height: '90px', 
+          background: 'linear-gradient(135deg, var(--primary-color), #2dd4bf)', 
+          borderRadius: '24px',
+          color: 'white',
+          fontSize: '3rem',
+          fontWeight: 800,
+          boxShadow: '0 10px 32px rgba(16,185,129,0.3)',
           marginBottom: '1.25rem',
-          boxShadow: '0 0 32px rgba(16,185,129,0.15)',
+          letterSpacing: '-1.5px'
         }}>
-          <img
-            src="/manitou-logo.png"
-            alt="City of Manitou Springs"
-            style={{ maxWidth: '68px', maxHeight: '68px', objectFit: 'contain' }}
-            onError={(e) => {
-              e.currentTarget.style.display = 'none';
-              const fallback = e.currentTarget.nextElementSibling as HTMLElement | null;
-              if (fallback) fallback.style.display = 'flex';
-            }}
-          />
-          <div style={{ display: 'none', alignItems: 'center', justifyContent: 'center' }}>
-            <BookOpen size={40} color="var(--primary-color)" />
-          </div>
+          MS
         </div>
 
         <div style={{ fontSize: '0.8rem', fontWeight: 700, letterSpacing: '2px', color: 'var(--primary-color)', textTransform: 'uppercase', marginBottom: '0.5rem' }}>

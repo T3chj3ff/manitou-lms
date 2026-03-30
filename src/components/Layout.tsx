@@ -1,14 +1,16 @@
 import { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { BookOpen, ShieldCheck, CheckCircle, Menu, X, Eye, EyeOff, Lock } from 'lucide-react';
+import { BookOpen, ShieldCheck, CheckCircle, Menu, X, Eye, EyeOff, Lock, Users } from 'lucide-react';
 import { useProgress } from '../lib/useProgress';
 import { useIdleTimeout } from '../lib/useIdleTimeout';
+import { useAuth } from '../lib/AuthContext';
 import modulesData from '../data/modules.json';
 
 export default function Layout() {
   useIdleTimeout(); // Listen for 15-minute inactivity timeout
 
   const { progressPercent, isCompleted, isStarted, userName } = useProgress();
+  const { isAdmin } = useAuth();
   const location = useLocation();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [highContrast, setHighContrast] = useState(() => localStorage.getItem('manitou-lms-hc') === 'true');
@@ -56,6 +58,23 @@ export default function Layout() {
       }}>
         <BookOpen size={18} /> Dashboard
       </Link>
+
+      {isAdmin && (
+        <Link to="/admin" style={{
+          display: 'flex', alignItems: 'center', gap: '0.75rem',
+          padding: '0.75rem 1rem', borderRadius: '8px',
+          background: location.pathname === '/admin' ? 'rgba(16, 185, 129, 0.1)' : 'transparent',
+          color: location.pathname === '/admin' ? 'var(--primary-color)' : 'var(--text-secondary)',
+          textDecoration: 'none', marginBottom: '1rem',
+          borderLeft: location.pathname === '/admin' ? '3px solid var(--primary-color)' : '3px solid transparent',
+          transition: 'all 0.2s'
+        }}
+        onMouseEnter={(e) => { if (location.pathname !== '/admin') e.currentTarget.style.background = 'rgba(255,255,255,0.03)'; }}
+        onMouseLeave={(e) => { if (location.pathname !== '/admin') e.currentTarget.style.background = 'transparent'; }}
+        >
+          <Users size={18} /> Admin Roster
+        </Link>
+      )}
 
       {modulesData.map((mod, index) => {
         const completed = isCompleted(mod.id);
